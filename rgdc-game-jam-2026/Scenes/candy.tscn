@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dyg707upjbxop"]
+
+[ext_resource type="Texture2D" uid="uid://dntql13g8ysv7" path="res://icon.svg" id="1_bresn"]
+[ext_resource type="Script" uid="uid://btek1uktt8gcq" path="res://Scripts/candy.gd" id="2_eqx18"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bresn"]
+size = Vector2(117, 119)
+
+[node name="Candy" type="Node2D" unique_id=1037682588]
+script = ExtResource("2_eqx18")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1843892934]
+input_pickable = true
+gravity_scale = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=311388141]
+texture = ExtResource("1_bresn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=896490863]
+shape = SubResource("RectangleShape2D_bresn")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="." unique_id=855822317]
+node_a = NodePath("CharacterBody2D")
+node_b = NodePath("../RigidBody2D")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="PinJoint2D" unique_id=1247937092]
+
+[connection signal="input_event" from="RigidBody2D" to="." method="_on_rigid_body_2d_input_event"]
