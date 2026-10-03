@@ -16,11 +16,21 @@ var mouse_pin: PinJoint2D
 var fake_body: StaticBody2D
 
 # READY
-#	Adds to group pickable
-#	Set rigidBody2D to detect mouse
+#	Adds to group Pickable
+#	Adds to group Candy or Rocket
+#	Sets up RigidBody2D
 func _ready():
-	add_to_group("pickable")
-	rigid_body.input_pickable = true
+	rigid_body.add_to_group("Pickable")
+	
+	if candy and !rocket:
+		rigid_body.add_to_group("Candy")
+	elif rocket and !candy:
+		rigid_body.add_to_group("Rocket")
+	
+	rigid_body.input_pickable = true 	#detects mouse
+	rigid_body.gravity_scale = 0 		#no gravity/floating
+	rigid_body.angular_damp = 5 			#slows down swing
+	rigid_body.linear_damp = 1 			#movement drag
 
 # ON RIGID BODY INPUT EVENT
 #	Sets held to true if mouse pressed
@@ -70,7 +80,7 @@ func start_drag(click_position: Vector2):
 
 # STOP DRAG:
 #	Sets held to false
-#	queue_frees created anchor body from START DRAG
+#	Deletes created anchor body from START DRAG
 func stop_drag():
 	is_held = false
 	if is_instance_valid(fake_body):

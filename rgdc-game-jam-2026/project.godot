@@ -15,10 +15,29 @@ run/main_scene="uid://c0tgn36lh2ucn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameManager="*uid://bi0tb0ifxi8r7"
+
 [display]
 
 window/size/viewport_width=1600
 window/size/viewport_height=1200
+
+[file_customization]
+
+folder_colors={
+"res://Assets/": "blue",
+"res://Scenes/": "orange",
+"res://Scripts/": "red",
+"res://Sound/": "teal"
+}
+
+[global_group]
+
+Candy=""
+Pickable=""
+Rocket=""
 
 [input]
 

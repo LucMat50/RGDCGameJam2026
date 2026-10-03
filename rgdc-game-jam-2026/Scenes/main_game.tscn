@@ -1,8 +1,16 @@
 [gd_scene format=3 uid="uid://c0tgn36lh2ucn"]
 
 [ext_resource type="PackedScene" uid="uid://dyg707upjbxop" path="res://Scenes/test_drag.tscn" id="1_l756w"]
+[ext_resource type="PackedScene" uid="uid://mfg1ipq2alea" path="res://Scenes/candy.tscn" id="2_pu3va"]
+[ext_resource type="PackedScene" uid="uid://k8gxoiihtfr5" path="res://Scenes/drop.tscn" id="3_0e3vx"]
 
 [node name="main_game" type="Node2D" unique_id=1499596178]
 
 [node name="Test_drag" parent="." unique_id=880631600 instance=ExtResource("1_l756w")]
 position = Vector2(395, 318)
+
+[node name="Candy" parent="." unique_id=234386370 instance=ExtResource("2_pu3va")]
+position = Vector2(760, 506)
+
+[node name="Drop" parent="." unique_id=672994277 instance=ExtResource("3_0e3vx")]
+position = Vector2(257, 998)
