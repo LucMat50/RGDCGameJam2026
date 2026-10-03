@@ -3,7 +3,7 @@ extends Node2D
 
 # EXPORT VARIABLES
 @export var candy: bool
-@export var rocket: bool
+@export var firecracker: bool
 
 # ONREADY VARIABLES
 @onready var rigid_body = $RigidBody2D
@@ -22,10 +22,10 @@ var fake_body: StaticBody2D
 func _ready():
 	rigid_body.add_to_group("Pickable")
 	
-	if candy and !rocket:
+	if candy and !firecracker:
 		rigid_body.add_to_group("Candy")
-	elif rocket and !candy:
-		rigid_body.add_to_group("Rocket")
+	elif firecracker and !candy:
+		rigid_body.add_to_group("Firecracker")
 	
 	rigid_body.input_pickable = true 	#detects mouse
 	rigid_body.gravity_scale = 0 		#no gravity/floating

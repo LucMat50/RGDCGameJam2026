@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://mfg1ipq2alea"]
 
 [ext_resource type="Script" uid="uid://btek1uktt8gcq" path="res://Scripts/pickable.gd" id="1_prm1k"]
+[ext_resource type="Script" uid="uid://bckgnfqblimwl" path="res://Scripts/candy.gd" id="2_bresn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bresn"]
 size = Vector2(315, 87.5)
@@ -12,7 +13,8 @@ candy = true
 [node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=408566285]
 input_pickable = true
 
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=867132802]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D" unique_id=1877102846]
+script = ExtResource("2_bresn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=72143038]
 shape = SubResource("RectangleShape2D_bresn")
