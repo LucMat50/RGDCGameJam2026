@@ -21,8 +21,8 @@ GameManager="*uid://bi0tb0ifxi8r7"
 
 [display]
 
-window/size/viewport_width=1600
-window/size/viewport_height=1200
+window/size/viewport_width=2000
+window/size/viewport_height=1500
 
 [file_customization]
 

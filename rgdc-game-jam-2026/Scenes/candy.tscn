@@ -2,9 +2,132 @@
 
 [ext_resource type="Script" uid="uid://btek1uktt8gcq" path="res://Scripts/pickable.gd" id="1_prm1k"]
 [ext_resource type="Script" uid="uid://bckgnfqblimwl" path="res://Scripts/candy.gd" id="2_bresn"]
+[ext_resource type="Texture2D" uid="uid://0334fmd32ww6" path="res://Assets/Candy/bocadin.png" id="3_eqx18"]
+[ext_resource type="Texture2D" uid="uid://bfc2gjn3p3q1l" path="res://Assets/Candy/bubulubu.png" id="4_sttmr"]
+[ext_resource type="Texture2D" uid="uid://dbf6cxoixewtu" path="res://Assets/Candy/mamut.png" id="5_wgpwp"]
+[ext_resource type="Texture2D" uid="uid://c1256oea68udj" path="res://Assets/Candy/mazapan.png" id="6_rovcq"]
+[ext_resource type="Texture2D" uid="uid://ckx6ecq0k85u3" path="res://Assets/Candy/pelon.png" id="7_fvh85"]
+[ext_resource type="Texture2D" uid="uid://b7044djmxdvui" path="res://Assets/Candy/pulparindo.png" id="8_wgpwp"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bresn"]
-size = Vector2(315, 87.5)
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjq0f"]
+atlas = ExtResource("3_eqx18")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvm3a"]
+atlas = ExtResource("3_eqx18")
+region = Rect2(640, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7p0b5"]
+atlas = ExtResource("4_sttmr")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j14fi"]
+atlas = ExtResource("4_sttmr")
+region = Rect2(640, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cg234"]
+atlas = ExtResource("5_wgpwp")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ojmk"]
+atlas = ExtResource("5_wgpwp")
+region = Rect2(640, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8hjj"]
+atlas = ExtResource("6_rovcq")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rgos"]
+atlas = ExtResource("6_rovcq")
+region = Rect2(640, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gd14u"]
+atlas = ExtResource("7_fvh85")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdew6"]
+atlas = ExtResource("7_fvh85")
+region = Rect2(640, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rovcq"]
+atlas = ExtResource("8_wgpwp")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvh85"]
+atlas = ExtResource("8_wgpwp")
+region = Rect2(640, 0, 640, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bresn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjq0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvm3a")
+}],
+"loop": true,
+"name": &"bocadin",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7p0b5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j14fi")
+}],
+"loop": true,
+"name": &"bubulubu",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cg234")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ojmk")
+}],
+"loop": true,
+"name": &"mamut",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8hjj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rgos")
+}],
+"loop": true,
+"name": &"mazapan",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gd14u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdew6")
+}],
+"loop": true,
+"name": &"pelon",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rovcq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvh85")
+}],
+"loop": true,
+"name": &"pulparindo",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wgpwp"]
+size = Vector2(503, 146)
 
 [node name="Candy" type="Node2D" unique_id=234386370]
 script = ExtResource("1_prm1k")
@@ -12,11 +135,14 @@ candy = true
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=408566285]
 input_pickable = true
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D" unique_id=1877102846]
 script = ExtResource("2_bresn")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D" unique_id=1877102846]
+sprite_frames = SubResource("SpriteFrames_bresn")
+animation = &"bocadin"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=72143038]
-shape = SubResource("RectangleShape2D_bresn")
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_wgpwp")
 
 [connection signal="input_event" from="RigidBody2D" to="." method="_on_rigid_body_2d_input_event"]

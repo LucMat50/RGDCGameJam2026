@@ -1,15 +1,19 @@
 class_name Firecracker
 extends AnimatedSprite2D
 
-# VARIABLES
-var rocket_texture: Texture
+# INT VARIABLES
+var random_firecracker: int
 
-# ROCKET DICTIONARY
+# ONREADY VARIABLES
+@onready var firecracker_anim = $AnimatedSprite2D
+@onready var firecracker_collision = $CollisionShape2D
+
+# DICTIONARIES
 var rocket_dict: Dictionary = {
-	"cara_de_diablo": "",
-	"chifladores": "",
-	"bombas_de_humo": "",
-	"cebollitas": "",
-	"paloma": "",
-	"abejita": ""
+	1: "cara_de_diablo",
+	2: "chifladores",
+	3: "bomba_de_humo",
+	4: "cebollitas",
+	5: "paloma",
+	6: "abejita"
 }
