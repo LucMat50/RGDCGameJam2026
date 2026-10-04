@@ -303,4 +303,6 @@ animation = &"chifladores"
 position = Vector2(1, 36)
 shape = SubResource("RectangleShape2D_rnpvi")
 
+[node name="Timer" type="Timer" parent="RigidBody2D" unique_id=43336547]
+
 [connection signal="input_event" from="RigidBody2D" to="." method="_on_rigid_body_2d_input_event"]

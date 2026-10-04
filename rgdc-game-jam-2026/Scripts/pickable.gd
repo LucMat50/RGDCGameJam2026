@@ -28,9 +28,9 @@ func _ready():
 		rigid_body.add_to_group("Firecracker")
 	
 	rigid_body.input_pickable = true 	#detects mouse
-	rigid_body.gravity_scale = 0 		#no gravity/floating
-	rigid_body.angular_damp = 5 			#slows down swing
-	rigid_body.linear_damp = 1 			#movement drag
+	rigid_body.gravity_scale = 1 		#no gravity/floating
+	rigid_body.angular_damp = 2 		#slows down swing
+	rigid_body.linear_damp = 0.3 		#movement drag
 
 # ON RIGID BODY INPUT EVENT
 #	Sets held to true if mouse pressed

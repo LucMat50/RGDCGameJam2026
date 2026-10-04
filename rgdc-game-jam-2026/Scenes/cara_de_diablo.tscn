@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://jan1t2pv30u5"]
+
+[ext_resource type="Script" uid="uid://btek1uktt8gcq" path="res://Scripts/pickable.gd" id="1_l3e67"]
+[ext_resource type="Script" uid="uid://dwno3jpn360lh" path="res://Scripts/cara_de_diablo.gd" id="1_lw4e6"]
+[ext_resource type="Texture2D" uid="uid://h5ruiar43ns1" path="res://Assets/Firecracker/cara_de_diablo.png" id="2_l3e67"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfhmt"]
+atlas = ExtResource("2_l3e67")
+region = Rect2(0, 0, 527, 462)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p65sg"]
+atlas = ExtResource("2_l3e67")
+region = Rect2(527, 0, 527, 462)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6br3h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfhmt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p65sg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CaraDeDiablo" type="Node2D" unique_id=1450503996]
+script = ExtResource("1_l3e67")
+firecracker = true
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1511535332]
+script = ExtResource("1_lw4e6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D" unique_id=1726887046]
+sprite_frames = SubResource("SpriteFrames_6br3h")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D" unique_id=611438471]
+
+[connection signal="input_event" from="RigidBody2D" to="." method="_on_rigid_body_2d_input_event"]
