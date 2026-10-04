@@ -20,26 +20,28 @@ var candy_dict: Dictionary = {
 }
 
 # Collision
-# [shape, size]
+# [shape, size, position]
 var collision_dict: Dictionary = {
-	1: [RectangleShape2D.new(), Vector2(500, 150)],
-	2: [RectangleShape2D.new(), Vector2(600, 130)],
-	3: [RectangleShape2D.new(), Vector2(400, 450)],
-	4: [CircleShape2D.new(), 160],
-	5: [RectangleShape2D.new(), Vector2(200, 550)],
-	6: [RectangleShape2D.new(), Vector2(500, 210)]
+	1: [RectangleShape2D.new(), Vector2(550, 140), Vector2(10,3)],
+	2: [RectangleShape2D.new(), Vector2(600, 130), Vector2(0,0)],
+	3: [RectangleShape2D.new(), Vector2(400, 450), Vector2(0,0)],
+	4: [CircleShape2D.new(), 160, Vector2(0,0)],
+	5: [RectangleShape2D.new(), Vector2(200, 550), Vector2(0,0)],
+	6: [RectangleShape2D.new(), Vector2(500, 210), Vector2(0,0)]
 }
 
 # READY
 # 	randomizes candy
 func _ready() -> void:
+	random_candy = 1
 	# random integer number 1 - 6
-	random_candy = randi_range(1, 6)
+	#random_candy = randi_range(1, 6)
 	# get animation from dictionary key
 	candy_anim.play(candy_dict[random_candy])
 	
 	# get shape from dictionary key
 	candy_collision.shape = collision_dict[random_candy][0]
+	candy_collision.position = collision_dict[random_candy][2]
 	
 	if candy_collision.shape is RectangleShape2D:
 		# get width:height from dictionary key
