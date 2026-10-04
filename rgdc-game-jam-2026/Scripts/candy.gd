@@ -19,7 +19,7 @@ var candy_dict: Dictionary = {
 	6: "pulparindo"
 }
 
-# Collision Shape
+# Collision
 # [shape, size]
 var collision_dict: Dictionary = {
 	1: [RectangleShape2D.new(), Vector2(500, 150)],
