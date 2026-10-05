@@ -1,13 +1,15 @@
-extends Node2D
+extends Marker2D
 
 # EXPORT VARIABLES
 @export_category("Candy")
 @export var candy_scene: PackedScene
 @export var candy_timer: float
+@export var candy_container: Node2D
 
 @export_category("Firecrackers")
 @export var firecrackers_scenes: Array[PackedScene]
 @export var firecracker_timer: float
+@export var firecracker_container: Node2D
 
 # INT VARIABLES
 var random_firecracker: int
@@ -42,7 +44,7 @@ func spawn_candy_firecracker():
 #	spawns candy scene
 func spawn_candy():
 	var candy: Node2D = candy_scene.instantiate()
-	get_tree().current_scene.add_child(candy)
+	candy_container.add_child(candy)
 	candy.global_position = global_position
 	print("CANDY SPAWNED")
 
@@ -50,6 +52,6 @@ func spawn_candy():
 #	spawns firecracker scene
 func spawn_firecracker():
 	var firecracker: Node2D = firecrackers_scenes[random_firecracker].instantiate()
-	get_tree().current_scene.add_child(firecracker)
+	firecracker_container.add_child(firecracker)
 	firecracker.global_position = global_position
 	print("FIRECRACKER SPAWNED")

@@ -9,7 +9,7 @@ var random_color: int
 # COLOR DICTIONARY
 var color_dict: Dictionary = {
 	1: "_azul",
-	2: "_morado",
+	2: "_morada",
 	3: "_rosa",
 	4: "_verde"
 }

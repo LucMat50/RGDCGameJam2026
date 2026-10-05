@@ -34,8 +34,10 @@ height = 284.0
 script = ExtResource("1_jd8fd")
 firecracker = true
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1402781533]
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1402781533 node_paths=PackedStringArray("detonation_timer")]
 script = ExtResource("2_7lw44")
+detonation_time = 8.0
+detonation_timer = NodePath("Timer")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D" unique_id=81849150]
 sprite_frames = SubResource("SpriteFrames_3n3iu")
@@ -43,3 +45,5 @@ sprite_frames = SubResource("SpriteFrames_3n3iu")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=53932387]
 position = Vector2(-4, 32)
 shape = SubResource("CapsuleShape2D_7mwx5")
+
+[node name="Timer" type="Timer" parent="RigidBody2D" unique_id=2014485242]

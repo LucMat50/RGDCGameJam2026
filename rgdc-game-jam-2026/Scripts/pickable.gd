@@ -64,9 +64,18 @@ func _physics_process(_delta: float) -> void:
 # START DRAG:
 #	Creates anchor body at mouse position
 func start_drag(click_position: Vector2):
+	# Containers for candy and firecracker nodes
+	var candy_container = get_tree().get_first_node_in_group("Candy")
+	var firecracker_container = get_tree().get_first_node_in_group("Firecracker")
+	
 	# Create the anchor body
 	fake_body = StaticBody2D.new()
-	owner.add_child(fake_body)
+	
+	# Add body to specified container
+	if candy and !firecracker:
+		candy_container.add_child(fake_body)
+	elif firecracker and !candy:
+		firecracker_container.add_child(fake_body)
 	
 	# Position anchor at mouse position
 	fake_body.global_position = click_position

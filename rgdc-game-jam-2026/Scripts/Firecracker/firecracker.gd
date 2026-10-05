@@ -24,7 +24,7 @@ var random_firecracker: int
 @export var detonation_type: String
 
 # ONREADY VARIABLES
-@onready var detonation_timer = $Timer
+@export var detonation_timer: Timer
 
 # CONSTANT VARIABLES
 const SPARK_PARTICLES = "spark"
