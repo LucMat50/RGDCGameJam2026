@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://c0tgn36lh2ucn"]
 
-[ext_resource type="PackedScene" uid="uid://dyg707upjbxop" path="res://Scenes/test_drag.tscn" id="1_l756w"]
+[ext_resource type="PackedScene" uid="uid://dyg707upjbxop" path="res://Scenes/Testing/test_drag.tscn" id="1_l756w"]
 [ext_resource type="PackedScene" uid="uid://mfg1ipq2alea" path="res://Scenes/candy.tscn" id="2_pu3va"]
 [ext_resource type="PackedScene" uid="uid://k8gxoiihtfr5" path="res://Scenes/drop.tscn" id="3_0e3vx"]
+[ext_resource type="PackedScene" uid="uid://jan1t2pv30u5" path="res://Scenes/Firecracker/cara_de_diablo.tscn" id="4_6j5ir"]
 
 [node name="main_game" type="Node2D" unique_id=1499596178]
 
@@ -14,3 +15,6 @@ position = Vector2(792, 371)
 
 [node name="Drop" parent="." unique_id=672994277 instance=ExtResource("3_0e3vx")]
 position = Vector2(257, 998)
+
+[node name="CaraDeDiablo" parent="." unique_id=1450503996 instance=ExtResource("4_6j5ir")]
+position = Vector2(1496, 501)

@@ -8,9 +8,9 @@ radius = 171.41762
 [node name="Drop" type="Area2D" unique_id=672994277 groups=["Candy"]]
 script = ExtResource("1_lbfjw")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1972712769]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=328695264]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2049303917]
 shape = SubResource("CircleShape2D_h6prr")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]

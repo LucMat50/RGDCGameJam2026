@@ -1,0 +1,56 @@
+class_name Firecracker
+extends RigidBody2D
+
+# INT VARIABLES
+var random_firecracker: int
+
+# EXPORT VARIABLES
+# Danger Category
+@export_category("Danger Category")
+#	Level 0/1: 0 to no harm
+#	Level 2: Stun
+#	Level 3: Will tear someone's limb off
+@export var danger_level: int
+
+# amount of candy lost if put in inventory
+@export var candy_tax: int
+
+# Detonation
+@export_category("Detonation")
+# time before detonating after held
+@export var detonation_time: float
+@export var spark_offset: Vector2
+@export var detonation_type: String
+@export var stun_time: float
+
+# ONREADY VARIABLES
+@onready var detonation_timer = $Timer
+
+# CONSTANT VARIABLES
+const SPARK_PARTICLES = "spark"
+
+# SIGNALS
+signal boom(danger_level, candy_tax, detonation_type)
+
+# READY
+# starts detonation timer
+func _ready() -> void:
+	detonation_timer.start(detonation_time)
+	detonation_timer.timeout.connect(detonation)
+
+# MISSED
+# 	blow up if falls to the bottom of the screen
+func missed():
+	var screen_size = get_viewport_rect().size
+	if global_position.y > screen_size.y:
+		if global_position.x in range(0, screen_size.x):
+			print("MISSED")
+			detonation()
+			GameManager.lives -= danger_level
+			print(GameManager.lives)
+
+# DETONATION
+#	emits signal with firecracker information
+func detonation():
+	print("KABOOM")
+	boom.emit(danger_level, candy_tax, detonation_type)
