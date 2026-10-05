@@ -7,10 +7,11 @@ var random_firecracker: int
 # EXPORT VARIABLES
 # Danger Category
 @export_category("Danger Category")
-#	Level 0/1: 0 to no harm
+#	Level 0/1: little to no harm
 #	Level 2: Stun
 #	Level 3: Will tear someone's limb off
 @export var danger_level: int
+@export var stun_time: float
 
 # amount of candy lost if put in inventory
 @export var candy_tax: int
@@ -21,7 +22,6 @@ var random_firecracker: int
 @export var detonation_time: float
 @export var spark_offset: Vector2
 @export var detonation_type: String
-@export var stun_time: float
 
 # ONREADY VARIABLES
 @onready var detonation_timer = $Timer
@@ -37,6 +37,9 @@ signal boom(danger_level, candy_tax, detonation_type)
 func _ready() -> void:
 	detonation_timer.start(detonation_time)
 	detonation_timer.timeout.connect(detonation)
+
+func _process(_delta: float) -> void:
+	missed()
 
 # MISSED
 # 	blow up if falls to the bottom of the screen
@@ -54,3 +57,4 @@ func missed():
 func detonation():
 	print("KABOOM")
 	boom.emit(danger_level, candy_tax, detonation_type)
+	queue_free()

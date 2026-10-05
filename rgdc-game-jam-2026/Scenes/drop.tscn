@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://d10ymbdfyxykq" path="res://Scripts/drop.gd" id="1_lbfjw"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_lbfjw"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_h6prr"]
 radius = 171.41762
 
@@ -9,6 +11,7 @@ radius = 171.41762
 script = ExtResource("1_lbfjw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=328695264]
+sprite_frames = SubResource("SpriteFrames_lbfjw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2049303917]
 shape = SubResource("CircleShape2D_h6prr")

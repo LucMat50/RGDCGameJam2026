@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://ypbmw4upk72e"]
+
+[ext_resource type="Script" uid="uid://btek1uktt8gcq" path="res://Scripts/pickable.gd" id="1_dosla"]
+[ext_resource type="Script" uid="uid://bv7c4i66mbqyt" path="res://Scripts/Firecracker/paloma.gd" id="2_ruk4v"]
+[ext_resource type="Texture2D" uid="uid://du1ej7u031h0v" path="res://Assets/Firecracker/paloma.png" id="3_a3ehn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j753j"]
+atlas = ExtResource("3_a3ehn")
+region = Rect2(0, 0, 477, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfof7"]
+atlas = ExtResource("3_a3ehn")
+region = Rect2(477, 0, 477, 360)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_suwhm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j753j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfof7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Paloma" type="Node2D" unique_id=609032392]
+script = ExtResource("1_dosla")
+firecracker = true
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=674117760]
+script = ExtResource("2_ruk4v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D" unique_id=1876582474]
+sprite_frames = SubResource("SpriteFrames_suwhm")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D" unique_id=1196119979]
+polygon = PackedVector2Array(6, -174, -129, -58, -234, 66, 8, 70, 229, 64, 129, -62)
+
+[connection signal="input_event" from="RigidBody2D" to="." method="_on_rigid_body_2d_input_event"]

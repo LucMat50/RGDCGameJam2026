@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://5x1qhytwscmk"]
+
+[ext_resource type="Script" uid="uid://btek1uktt8gcq" path="res://Scripts/pickable.gd" id="1_l1wnr"]
+[ext_resource type="Texture2D" uid="uid://df0qhepf6edus" path="res://Assets/Firecracker/cebollita_azul.png" id="2_gvse2"]
+[ext_resource type="Script" uid="uid://d16innkx22ldx" path="res://Scripts/Firecracker/cebollita.gd" id="2_x25ci"]
+[ext_resource type="Texture2D" uid="uid://bv7n27s6hgw2g" path="res://Assets/Firecracker/cebollita_morada.png" id="3_x25ci"]
+[ext_resource type="Texture2D" uid="uid://b2edlq3gykvbk" path="res://Assets/Firecracker/cebollita_rosa.png" id="4_6gast"]
+[ext_resource type="Texture2D" uid="uid://d16so0rfnk3yh" path="res://Assets/Firecracker/cebollita_verde.png" id="5_fcrm8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olrmr"]
+atlas = ExtResource("2_gvse2")
+region = Rect2(0, 0, 79, 249)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvxtd"]
+atlas = ExtResource("2_gvse2")
+region = Rect2(79, 0, 79, 249)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2tio"]
+atlas = ExtResource("3_x25ci")
+region = Rect2(0, 0, 79, 249)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75srl"]
+atlas = ExtResource("3_x25ci")
+region = Rect2(79, 0, 79, 249)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qd163"]
+atlas = ExtResource("4_6gast")
+region = Rect2(0, 0, 79, 249)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnvyv"]
+atlas = ExtResource("4_6gast")
+region = Rect2(79, 0, 79, 249)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x70kr"]
+atlas = ExtResource("5_fcrm8")
+region = Rect2(0, 0, 79, 249)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t033a"]
+atlas = ExtResource("5_fcrm8")
+region = Rect2(79, 0, 79, 249)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7kuoq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olrmr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvxtd")
+}],
+"loop": true,
+"name": &"cebollita_azul",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2tio")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75srl")
+}],
+"loop": true,
+"name": &"cebollita_morada",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qd163")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnvyv")
+}],
+"loop": true,
+"name": &"cebollita_rosa",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x70kr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t033a")
+}],
+"loop": true,
+"name": &"cebollita_verde",
+"speed": 5.0
+}]
+
+[node name="Cebollita" type="Node2D" unique_id=1681260728]
+script = ExtResource("1_l1wnr")
+firecracker = true
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1195985898]
+script = ExtResource("2_x25ci")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D" unique_id=1488908273]
+sprite_frames = SubResource("SpriteFrames_7kuoq")
+animation = &"cebollita_verde"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D" unique_id=1957939619]
+polygon = PackedVector2Array(6, -120, -17, -118, -10, -24, -23, 10, -32, 43, -31, 84, -16, 111, -10, 117, -1, 121, 12, 118, 20, 113, 30, 94, 33, 67, 32, 37, 22, 4, 10, -26)
+
+[connection signal="input_event" from="RigidBody2D" to="." method="_on_rigid_body_2d_input_event"]

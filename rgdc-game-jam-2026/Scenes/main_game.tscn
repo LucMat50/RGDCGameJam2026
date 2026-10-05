@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://mfg1ipq2alea" path="res://Scenes/candy.tscn" id="2_pu3va"]
 [ext_resource type="PackedScene" uid="uid://k8gxoiihtfr5" path="res://Scenes/drop.tscn" id="3_0e3vx"]
 [ext_resource type="PackedScene" uid="uid://jan1t2pv30u5" path="res://Scenes/Firecracker/cara_de_diablo.tscn" id="4_6j5ir"]
+[ext_resource type="PackedScene" uid="uid://b6dmhu1ho1stk" path="res://Scenes/Firecracker/abejita.tscn" id="5_mgc0q"]
 
 [node name="main_game" type="Node2D" unique_id=1499596178]
 
@@ -18,3 +19,6 @@ position = Vector2(257, 998)
 
 [node name="CaraDeDiablo" parent="." unique_id=1450503996 instance=ExtResource("4_6j5ir")]
 position = Vector2(1496, 501)
+
+[node name="Abejita" parent="." unique_id=136243952 instance=ExtResource("5_mgc0q")]
+position = Vector2(1146, 177)

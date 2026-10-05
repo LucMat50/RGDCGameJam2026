@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://cnkvhshgyp8pl"]
+
+[ext_resource type="Script" uid="uid://btek1uktt8gcq" path="res://Scripts/pickable.gd" id="1_olbto"]
+[ext_resource type="Script" uid="uid://bot0w5qtfs1y3" path="res://Scripts/Firecracker/pelota_de_humo.gd" id="2_u6h0k"]
+[ext_resource type="Texture2D" uid="uid://jxwasekwgyj6" path="res://Assets/Firecracker/pelota_de_humo_amarillo.png" id="3_2760t"]
+[ext_resource type="Texture2D" uid="uid://dqpaec72vc30j" path="res://Assets/Firecracker/pelota_de_humo_azul.png" id="4_u3mrg"]
+[ext_resource type="Texture2D" uid="uid://ynx7vxeij8kv" path="res://Assets/Firecracker/pelota_de_humo_rosa.png" id="5_voxli"]
+[ext_resource type="Texture2D" uid="uid://sb6d13mt2mnm" path="res://Assets/Firecracker/pelota_de_humo_verde.png" id="6_in7ns"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xtkx"]
+atlas = ExtResource("3_2760t")
+region = Rect2(0, 0, 275, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prag1"]
+atlas = ExtResource("3_2760t")
+region = Rect2(275, 0, 275, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4is5"]
+atlas = ExtResource("4_u3mrg")
+region = Rect2(0, 0, 275, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_721b2"]
+atlas = ExtResource("4_u3mrg")
+region = Rect2(275, 0, 275, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ig4a1"]
+atlas = ExtResource("5_voxli")
+region = Rect2(0, 0, 275, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqvfm"]
+atlas = ExtResource("5_voxli")
+region = Rect2(275, 0, 275, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1shd0"]
+atlas = ExtResource("6_in7ns")
+region = Rect2(0, 0, 275, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oacqw"]
+atlas = ExtResource("6_in7ns")
+region = Rect2(275, 0, 275, 350)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d5noo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xtkx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prag1")
+}],
+"loop": true,
+"name": &"pelota_de_humo_amarillo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4is5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_721b2")
+}],
+"loop": true,
+"name": &"pelota_de_humo_azul",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ig4a1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqvfm")
+}],
+"loop": true,
+"name": &"pelota_de_humo_rosa",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1shd0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oacqw")
+}],
+"loop": true,
+"name": &"pelota_de_humo_verde",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t0oq6"]
+radius = 117.01709
+
+[node name="PelotaDeHumo" type="Node2D" unique_id=1448734644]
+script = ExtResource("1_olbto")
+firecracker = true
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=511008624]
+script = ExtResource("2_u6h0k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D" unique_id=647294473]
+sprite_frames = SubResource("SpriteFrames_d5noo")
+animation = &"pelota_de_humo_verde"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=921400520]
+position = Vector2(2, 57)
+shape = SubResource("CircleShape2D_t0oq6")
+
+[connection signal="input_event" from="RigidBody2D" to="." method="_on_rigid_body_2d_input_event"]
