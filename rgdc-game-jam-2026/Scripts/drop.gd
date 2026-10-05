@@ -28,8 +28,14 @@ func drop():
 			body.queue_free()
 			
 		elif body.is_in_group("Firecracker"):
+			if body.has_signal("boom"):
+				body.boom.connect(_on_boom)
 			firecracker_points += 1
 			print("Firecracker: " + str(firecracker_points))
+			body.detonation()
 			candy_points -= candy_tax
+			print("Candy: " + str(candy_points))
 			firecracker_inventory.append(body)
-			body.queue_free()
+
+func _on_boom(_danger: int, tax: int, _type: String):
+	candy_tax = tax

@@ -1,0 +1,55 @@
+extends Node2D
+
+# EXPORT VARIABLES
+@export_category("Candy")
+@export var candy_scene: PackedScene
+@export var candy_timer: float
+
+@export_category("Firecrackers")
+@export var firecrackers_scenes: Array[PackedScene]
+@export var firecracker_timer: float
+
+# INT VARIABLES
+var random_firecracker: int
+var random_scene: int
+var current_wave: int = 1
+
+# FLOAT VARIABLES
+var candy_spawn_timer: float
+var firecracker_spawn_timer: float
+
+# BOOLEAN VARIABLES
+var spawning: bool = false
+
+# READY
+#	spawns candy or firecracker
+func _ready() -> void:
+	spawn_candy_firecracker()
+
+# SPAWN CANDY / FIRECRACKER
+#	calls spawn_candy or spawn_firecracker
+func spawn_candy_firecracker():
+	random_scene = randi_range(1,2)
+	random_firecracker = randi_range(0, 5)
+	
+	match random_scene:
+		1:
+			spawn_candy()
+		2:
+			spawn_firecracker()
+
+# SPAWN CANDY
+#	spawns candy scene
+func spawn_candy():
+	var candy = candy_scene.instantiate()
+	candy.global_position = global_position
+	get_tree().current_scene.add_child(candy)
+	print("CANDY SPAWNED")
+
+# SPAWN FIRECRACKER
+#	spawns firecracker scene
+func spawn_firecracker():
+	var firecracker = firecrackers_scenes[random_firecracker].instantiate()
+	firecracker.global_position = global_position
+	get_tree().current_scene.add_child(firecracker)
+	print("FIRECRACKER SPAWNED")

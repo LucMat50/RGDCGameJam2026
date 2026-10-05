@@ -30,7 +30,7 @@ var random_firecracker: int
 const SPARK_PARTICLES = "spark"
 
 # SIGNALS
-signal boom(danger_level, candy_tax, detonation_type)
+signal boom(danger: int, tax: int, type: String)
 
 # READY
 # starts detonation timer

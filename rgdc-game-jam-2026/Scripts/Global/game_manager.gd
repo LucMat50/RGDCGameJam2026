@@ -10,4 +10,4 @@ var current_wave_points: int = 0
 var lives: int = 3
 
 #	Waves
-var current_wave: int = 0
+var current_wave: int = 1
