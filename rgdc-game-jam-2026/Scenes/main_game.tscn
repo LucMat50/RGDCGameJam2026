@@ -8,5 +8,25 @@
 [node name="Drop" parent="." unique_id=672994277 instance=ExtResource("3_0e3vx")]
 position = Vector2(223, 1285)
 
-[node name="Spawner" parent="." unique_id=840099423 instance=ExtResource("2_pu3va")]
+[node name="Spawners" type="Node2D" parent="." unique_id=299023701]
+
+[node name="Spawner1" parent="Spawners" unique_id=840099423 instance=ExtResource("2_pu3va")]
+position = Vector2(250, 0)
+
+[node name="Spawner2" parent="Spawners" unique_id=1670754006 instance=ExtResource("2_pu3va")]
+position = Vector2(500, 0)
+
+[node name="Spawner3" parent="Spawners" unique_id=1565543491 instance=ExtResource("2_pu3va")]
+position = Vector2(750, 0)
+
+[node name="Spawner4" parent="Spawners" unique_id=862134225 instance=ExtResource("2_pu3va")]
 position = Vector2(1000, 0)
+
+[node name="Spawner5" parent="Spawners" unique_id=706232706 instance=ExtResource("2_pu3va")]
+position = Vector2(1250, 0)
+
+[node name="Spawner6" parent="Spawners" unique_id=1335150886 instance=ExtResource("2_pu3va")]
+position = Vector2(1500, 0)
+
+[node name="Spawner7" parent="Spawners" unique_id=257927487 instance=ExtResource("2_pu3va")]
+position = Vector2(1750, 0)

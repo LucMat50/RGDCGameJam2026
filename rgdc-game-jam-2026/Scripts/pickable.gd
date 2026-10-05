@@ -14,12 +14,16 @@ var is_held: bool = false
 # NODE VARIABLES	
 var mouse_pin: PinJoint2D
 var fake_body: StaticBody2D
+var crinkle = AudioStreamPlayer.new()
 
 # READY
 #	Adds to group Pickable
 #	Adds to group Candy or Rocket
 #	Sets up RigidBody2D
 func _ready():
+	crinkle.stream = load("res://Sound/Crinkle.MP3")
+	add_child(crinkle)
+	
 	rigid_body.add_to_group("Pickable")
 	
 	if candy and !firecracker:
@@ -40,6 +44,7 @@ func _on_rigid_body_2d_input_event(_viewport: Node, event: InputEvent, _shape_id
 		if event.is_pressed() and not is_held:
 			# True when mouse pressed on CollisionShape2D
 			is_held = true
+			crinkle.play()
 			# Set anchor to mouse position
 			start_drag(event.position)
 

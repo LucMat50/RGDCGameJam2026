@@ -41,15 +41,15 @@ func spawn_candy_firecracker():
 # SPAWN CANDY
 #	spawns candy scene
 func spawn_candy():
-	var candy = candy_scene.instantiate()
-	candy.global_position = global_position
+	var candy: Node2D = candy_scene.instantiate()
 	get_tree().current_scene.add_child(candy)
+	candy.global_position = global_position
 	print("CANDY SPAWNED")
 
 # SPAWN FIRECRACKER
 #	spawns firecracker scene
 func spawn_firecracker():
-	var firecracker = firecrackers_scenes[random_firecracker].instantiate()
-	firecracker.global_position = global_position
+	var firecracker: Node2D = firecrackers_scenes[random_firecracker].instantiate()
 	get_tree().current_scene.add_child(firecracker)
+	firecracker.global_position = global_position
 	print("FIRECRACKER SPAWNED")
