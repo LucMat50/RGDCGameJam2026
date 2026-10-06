@@ -47,3 +47,5 @@ position = Vector2(-4, 32)
 shape = SubResource("CapsuleShape2D_7mwx5")
 
 [node name="Timer" type="Timer" parent="RigidBody2D" unique_id=2014485242]
+
+[connection signal="input_event" from="RigidBody2D" to="." method="_on_rigid_body_2d_input_event"]

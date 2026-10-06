@@ -17,16 +17,30 @@ var random_scene: int
 var current_wave: int = 1
 
 # FLOAT VARIABLES
-var candy_spawn_timer: float
-var firecracker_spawn_timer: float
+var spawn_time: float
 
 # BOOLEAN VARIABLES
-var spawning: bool = false
+var normal_spawning: bool = false
+var chaos_spawning: bool = false
+
+# ONREADY VARIABLES
+@onready var spawn_timer: Timer = $Timer
+
+# DICTIONARIES
+var firecracker_probability: Dictionary = {
+	0: 0.25,
+	1: 0.05,
+	2: 0.15,
+	3: 0.25,
+	4: 0.30
+}
 
 # READY
 #	spawns candy or firecracker
 func _ready() -> void:
-	spawn_candy_firecracker()
+	set_spawn_time()
+	spawn_timer.start(spawn_time)
+	spawn_timer.timeout.connect(spawn_candy_firecracker)
 
 # SPAWN CANDY / FIRECRACKER
 #	calls spawn_candy or spawn_firecracker
@@ -55,3 +69,13 @@ func spawn_firecracker():
 	firecracker_container.add_child(firecracker)
 	firecracker.global_position = global_position
 	print("FIRECRACKER SPAWNED")
+
+# SET SPAWN TIME
+#	throughout wave
+func set_spawn_time():
+	spawn_time = randf_range(3,9)
+
+# RAAA CANDY TIME
+#	near end of wave 
+func raaaa_candy_time():
+	spawn_time = randf_range(0.2, 0.5)
