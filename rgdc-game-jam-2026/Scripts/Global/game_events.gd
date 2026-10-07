@@ -1,3 +1,4 @@
 extends Node
 
-signal death
+signal filled_candy_bag
+signal game_over

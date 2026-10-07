@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://7lwoaiswack3"]
+
+[ext_resource type="Script" uid="uid://c4becputjnk32" path="res://Scripts/custom_cursor.gd" id="1_eeebg"]
+
+[node name="CustomCursor" type="Sprite2D" unique_id=1050464833]
+script = ExtResource("1_eeebg")

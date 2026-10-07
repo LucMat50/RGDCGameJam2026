@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c0pmlq1afn5cw" path="res://Scenes/spawner.tscn" id="2_pu3va"]
 [ext_resource type="PackedScene" uid="uid://k8gxoiihtfr5" path="res://Scenes/drop.tscn" id="3_0e3vx"]
+[ext_resource type="PackedScene" uid="uid://7lwoaiswack3" path="res://Scenes/custom_cursor.tscn" id="3_6j5ir"]
 
 [node name="main_game" type="Node2D" unique_id=1499596178]
 
@@ -28,3 +29,7 @@ firecracker_container = NodePath("../../Firecracker")
 [node name="Candy" type="Node2D" parent="." unique_id=1783669923 groups=["Candy"]]
 
 [node name="Firecracker" type="Node2D" parent="." unique_id=1978005677 groups=["Firecracker"]]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2027866418]
+
+[node name="CustomCursor" parent="CanvasLayer" unique_id=1050464833 instance=ExtResource("3_6j5ir")]

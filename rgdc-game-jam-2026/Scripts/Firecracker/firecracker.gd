@@ -22,6 +22,7 @@ var random_firecracker: int
 @export var detonation_time: float
 @export var spark_offset: Vector2
 @export var detonation_type: String
+@export var detonation_boom: AudioStreamPlayer
 
 # ONREADY VARIABLES
 @export var detonation_timer: Timer
