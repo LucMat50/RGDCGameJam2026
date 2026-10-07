@@ -22,7 +22,7 @@ var anim_timer: float = 0
 
 # EXPORT VARIABLES
 @export var fps: float = 0.3							#time per frame
-@export var click_offset: Vector2 = Vector2.ZERO		#click origin
+@export var click_offset: Vector2 = Vector2(100, 100)		#click origin
 
 #func _ready() -> void:
 #	set_cursor_scale(0.5)
@@ -30,7 +30,11 @@ var anim_timer: float = 0
 # PROCESS
 func _process(delta: float) -> void:
 	anim_timer += delta
-	idle_anim()
+	
+	if GameManager.hold:
+		hold_anim()
+	else:
+		idle_anim()
 
 # PHYSICS PROCESS
 func _physics_process(_delta: float) -> void:
