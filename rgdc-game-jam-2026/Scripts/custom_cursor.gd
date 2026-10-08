@@ -22,12 +22,10 @@ var anim_timer: float = 0
 
 # EXPORT VARIABLES
 @export var fps: float = 0.3							#time per frame
-@export var click_offset: Vector2 = Vector2(100, 100)		#click origin
-
-#func _ready() -> void:
-#	set_cursor_scale(0.5)
+@export var click_offset: Vector2 = Vector2(100, 100)	#click origin
 
 # PROCESS
+#	handles animations
 func _process(delta: float) -> void:
 	anim_timer += delta
 	
@@ -37,10 +35,12 @@ func _process(delta: float) -> void:
 		idle_anim()
 
 # PHYSICS PROCESS
+#	sets custom image to cursor position
 func _physics_process(_delta: float) -> void:
 	global_position = get_global_mouse_position()
 
 # IDLE ANIMATION
+#	sets custom mouse cursor to idle animation
 func idle_anim():
 	if anim_timer >= fps:
 		anim_timer = 0
@@ -53,11 +53,13 @@ func idle_anim():
 		)
 
 # HOLD ANIMATION
+#	sets custom mouse cursor to holding animation
 func hold_anim():
 	if anim_timer >= fps:
 		anim_timer = 0
 		current_frame = (current_frame + 1) % hold_frames.size()
 		
+		# Sets mouse cursor to current frame
 		Input.set_custom_mouse_cursor(
 			hold_frames[current_frame],
 			Input.CURSOR_ARROW,
@@ -65,11 +67,13 @@ func hold_anim():
 		)
 
 # HURT/STUN ANIMATION
+#	sets custom mouse cursor to hurt/stun animation
 func hurt_anim():
 	if anim_timer >= fps:
 		anim_timer = 0
 		current_frame = (current_frame + 1) % hurt_frames.size()
 		
+		# Sets mouse cursor to current frame
 		Input.set_custom_mouse_cursor(
 			hurt_frames[current_frame],
 			Input.CURSOR_ARROW,
