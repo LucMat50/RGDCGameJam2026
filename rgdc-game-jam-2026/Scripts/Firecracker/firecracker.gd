@@ -13,7 +13,7 @@ var random_firecracker: int
 @export var danger_level: int
 @export var stun_time: float
 
-# amount of candy lost if put in inventory
+# amount of candy lost if put in inventory or blown up
 @export var candy_tax: int
 
 # Detonation
@@ -28,7 +28,7 @@ var random_firecracker: int
 @export var detonation_timer: Timer
 
 # CONSTANT VARIABLES
-const SPARK_PARTICLES = "spark"
+const SPARK_PARTICLES = preload("res://Scenes/VFX/spark.tscn")
 
 # SIGNALS
 signal boom(danger: int, tax: int, type: String)
@@ -36,11 +36,19 @@ signal boom(danger: int, tax: int, type: String)
 # READY
 # starts detonation timer
 func _ready() -> void:
+	spark_particles()
 	detonation_timer.start(detonation_time)
 	detonation_timer.timeout.connect(detonation)
 
 func _process(_delta: float) -> void:
 	missed()
+
+# SPARK PARTICLES
+#	instantiate and set spark at beginning of the wick
+func spark_particles():
+	var spark = SPARK_PARTICLES.instantiate()
+	spark.position = spark_offset
+	self.add_child(spark)
 
 # MISSED
 # 	blow up if falls to the bottom of the screen

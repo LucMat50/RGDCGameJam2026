@@ -14,6 +14,9 @@ var color_dict: Dictionary = {
 	4: "_verde"
 }
 
+# READY
+#	randomizes color
 func _ready() -> void:
+	super()
 	random_color = randi_range(1,4)
 	color_anim.play("cebollita" + color_dict[random_color])

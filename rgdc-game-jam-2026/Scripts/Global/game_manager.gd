@@ -8,3 +8,4 @@ var total_points: int = 0
 var lives: int = 5
 
 var hold: bool = false
+var hurt: bool = false

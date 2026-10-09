@@ -73,8 +73,10 @@ firecracker = true
 [node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1358118968 node_paths=PackedStringArray("detonation_timer")]
 script = ExtResource("2_ev5fy")
 danger_level = 1
-candy_tax = 1
+stun_time = 3.0
+candy_tax = 2
 detonation_time = 5.0
+spark_offset = Vector2(31, -148)
 detonation_timer = NodePath("Timer")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D" unique_id=254186480]
