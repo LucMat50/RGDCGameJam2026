@@ -1,19 +1,50 @@
 [gd_scene format=3 uid="uid://k8gxoiihtfr5"]
 
 [ext_resource type="Script" uid="uid://d10ymbdfyxykq" path="res://Scripts/drop.gd" id="1_lbfjw"]
+[ext_resource type="Texture2D" uid="uid://btd6ele0xmv4n" path="res://Assets/Bag/bag.png" id="2_pcs5o"]
+[ext_resource type="Shader" uid="uid://dawhn1paqsows" path="res://Assets/outline.gdshader" id="2_r0ybf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1okqs"]
+shader = ExtResource("2_r0ybf")
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/corner_pixel = false
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0ybf"]
+atlas = ExtResource("2_pcs5o")
+region = Rect2(0, 0, 478, 529)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1okqs"]
+atlas = ExtResource("2_pcs5o")
+region = Rect2(478, 0, 478, 529)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lbfjw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0ybf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1okqs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_h6prr"]
-radius = 171.41762
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ugth3"]
+radius = 232.5
+height = 538.0
 
 [node name="Drop" type="Area2D" unique_id=672994277 groups=["Candy"]]
 script = ExtResource("1_lbfjw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=328695264]
+material = SubResource("ShaderMaterial_1okqs")
 sprite_frames = SubResource("SpriteFrames_lbfjw")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2049303917]
-shape = SubResource("CircleShape2D_h6prr")
+position = Vector2(-5.5, 0)
+shape = SubResource("CapsuleShape2D_ugth3")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

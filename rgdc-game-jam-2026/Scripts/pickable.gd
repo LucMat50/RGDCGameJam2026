@@ -43,10 +43,11 @@ func _ready():
 #	Sends mouse position to START DRAG
 func _on_rigid_body_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if event.is_pressed() and not is_held:
+		if event.is_pressed() and not is_held and not GameManager.hurt:
 			# True when mouse pressed on CollisionShape2D
+			print("HOLD")
 			is_held = true
-			GameManager.hold = is_held
+			GameManager.hold = true
 			crinkle.play()
 			# Set anchor to mouse position
 			start_drag(event.position)
@@ -99,7 +100,8 @@ func start_drag(click_position: Vector2):
 #	Sets held to false
 #	Deletes created anchor body from START DRAG
 func stop_drag():
+	print("STOP HOLDING")
 	is_held = false
-	GameManager.hold = is_held
+	GameManager.hold = false
 	if is_instance_valid(fake_body):
 		fake_body.queue_free()

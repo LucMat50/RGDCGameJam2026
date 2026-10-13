@@ -7,7 +7,7 @@
 [node name="main_game" type="Node2D" unique_id=1499596178]
 
 [node name="Drop" parent="." unique_id=672994277 instance=ExtResource("3_0e3vx")]
-position = Vector2(223, 1285)
+position = Vector2(266, 1215)
 
 [node name="Spawners" type="Node2D" parent="." unique_id=1079325729]
 

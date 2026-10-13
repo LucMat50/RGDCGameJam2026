@@ -29,8 +29,10 @@ var anim_timer: float = 0
 func _process(delta: float) -> void:
 	anim_timer += delta
 	
-	if GameManager.hold:
+	if GameManager.hold and !GameManager.hurt:
 		hold_anim()
+	elif GameManager.hurt and !GameManager.hold:
+		hurt_anim()
 	else:
 		idle_anim()
 

@@ -93,11 +93,12 @@ radius = 117.01709
 script = ExtResource("1_olbto")
 firecracker = true
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=511008624 node_paths=PackedStringArray("detonation_timer")]
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=511008624 node_paths=PackedStringArray("stun_timer", "detonation_timer")]
 script = ExtResource("2_u6h0k")
+stun_timer = NodePath("Stun")
 detonation_time = 8.0
 spark_offset = Vector2(-117, -147)
-detonation_timer = NodePath("Timer")
+detonation_timer = NodePath("Detonation")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D" unique_id=647294473]
 sprite_frames = SubResource("SpriteFrames_d5noo")
@@ -107,6 +108,8 @@ animation = &"pelota_de_humo_verde"
 position = Vector2(2, 57)
 shape = SubResource("CircleShape2D_t0oq6")
 
-[node name="Timer" type="Timer" parent="RigidBody2D" unique_id=792099036]
+[node name="Detonation" type="Timer" parent="RigidBody2D" unique_id=792099036]
+
+[node name="Stun" type="Timer" parent="RigidBody2D" unique_id=566244332]
 
 [connection signal="input_event" from="RigidBody2D" to="." method="_on_rigid_body_2d_input_event"]

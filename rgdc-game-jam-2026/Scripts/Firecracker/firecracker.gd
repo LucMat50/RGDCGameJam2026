@@ -12,6 +12,7 @@ var random_firecracker: int
 #	Level 3: Will tear someone's limb off
 @export var danger_level: int
 @export var stun_time: float
+@export var stun_timer: Timer
 
 # amount of candy lost if put in inventory or blown up
 @export var candy_tax: int
@@ -39,6 +40,7 @@ func _ready() -> void:
 	spark_particles()
 	detonation_timer.start(detonation_time)
 	detonation_timer.timeout.connect(detonation)
+	stun_timer.timeout.connect(stun_finished)
 
 func _process(_delta: float) -> void:
 	missed()
@@ -66,4 +68,24 @@ func missed():
 func detonation():
 	print("KABOOM")
 	boom.emit(danger_level, candy_tax, detonation_type)
+	if GameManager.hold:
+		stun()
+	else: 
+		queue_free()
+
+#STUN
+#	sets stun time if player holds firework at time of detonation
+func stun():
 	queue_free()
+	print("STUN")
+	GameManager.hurt = true
+	GameManager.hold = false
+	
+	print("Stun time: ", stun_time)
+	stun_timer.start(stun_time)
+
+# STUN FINISHED
+#	sets hurt to false so player can hold again
+func stun_finished():
+	GameManager.hurt = false
+	print("STUN FINISHED")

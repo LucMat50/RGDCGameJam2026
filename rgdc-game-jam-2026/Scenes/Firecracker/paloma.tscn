@@ -30,18 +30,23 @@ animations = [{
 script = ExtResource("1_dosla")
 firecracker = true
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=674117760 node_paths=PackedStringArray("detonation_timer")]
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=674117760 node_paths=PackedStringArray("stun_timer", "detonation_timer")]
 script = ExtResource("2_ruk4v")
+stun_time = 5.0
+stun_timer = NodePath("Stun")
 detonation_time = 5.0
 spark_offset = Vector2(-28, 169)
-detonation_timer = NodePath("Timer")
+detonation_timer = NodePath("Detonation")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D" unique_id=1876582474]
 sprite_frames = SubResource("SpriteFrames_suwhm")
+autoplay = "default"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D" unique_id=1196119979]
 polygon = PackedVector2Array(6, -174, -129, -58, -234, 66, 8, 70, 229, 64, 129, -62)
 
-[node name="Timer" type="Timer" parent="RigidBody2D" unique_id=435056520]
+[node name="Detonation" type="Timer" parent="RigidBody2D" unique_id=435056520]
+
+[node name="Stun" type="Timer" parent="RigidBody2D" unique_id=1225818986]
 
 [connection signal="input_event" from="RigidBody2D" to="." method="_on_rigid_body_2d_input_event"]

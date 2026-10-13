@@ -34,19 +34,24 @@ height = 284.0
 script = ExtResource("1_jd8fd")
 firecracker = true
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1402781533 node_paths=PackedStringArray("detonation_timer")]
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1402781533 node_paths=PackedStringArray("stun_timer", "detonation_timer")]
 script = ExtResource("2_7lw44")
+stun_time = 3.0
+stun_timer = NodePath("Stun")
 detonation_time = 8.0
 spark_offset = Vector2(-10, -157)
-detonation_timer = NodePath("Timer")
+detonation_timer = NodePath("Detonation")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D" unique_id=81849150]
 sprite_frames = SubResource("SpriteFrames_3n3iu")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=53932387]
 position = Vector2(-4, 32)
 shape = SubResource("CapsuleShape2D_7mwx5")
 
-[node name="Timer" type="Timer" parent="RigidBody2D" unique_id=2014485242]
+[node name="Detonation" type="Timer" parent="RigidBody2D" unique_id=2014485242]
+
+[node name="Stun" type="Timer" parent="RigidBody2D" unique_id=307126884]
 
 [connection signal="input_event" from="RigidBody2D" to="." method="_on_rigid_body_2d_input_event"]

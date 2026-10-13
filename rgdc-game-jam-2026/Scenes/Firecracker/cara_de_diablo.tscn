@@ -30,21 +30,25 @@ animations = [{
 script = ExtResource("1_l3e67")
 firecracker = true
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1511535332 node_paths=PackedStringArray("detonation_timer")]
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1511535332 node_paths=PackedStringArray("stun_timer", "detonation_timer")]
 script = ExtResource("1_lw4e6")
 danger_level = 3
+stun_time = 3.0
+stun_timer = NodePath("Stun")
 candy_tax = 3
 detonation_time = 3.0
-spark_color = Color(0.52156866, 0.9529412, 0.10980392, 1)
 spark_offset = Vector2(74, 222)
-detonation_timer = NodePath("Timer")
+detonation_timer = NodePath("Detonation")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D" unique_id=1726887046]
 sprite_frames = SubResource("SpriteFrames_6br3h")
+autoplay = "default"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D" unique_id=611438471]
 polygon = PackedVector2Array(-167, -24, -102, 104, -18, 222, -8, 223, 11, 219, 81, 100, 249, -221, 143, -151, -188, -153, -246, -197)
 
-[node name="Timer" type="Timer" parent="RigidBody2D" unique_id=956544554]
+[node name="Detonation" type="Timer" parent="RigidBody2D" unique_id=956544554]
+
+[node name="Stun" type="Timer" parent="RigidBody2D" unique_id=1090935656]
 
 [connection signal="input_event" from="RigidBody2D" to="." method="_on_rigid_body_2d_input_event"]
