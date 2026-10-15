@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://jan1t2pv30u5"]
 
-[ext_resource type="Script" uid="uid://btek1uktt8gcq" path="res://Scripts/pickable.gd" id="1_l3e67"]
-[ext_resource type="Script" uid="uid://dwno3jpn360lh" path="res://Scripts/Firecracker/cara_de_diablo.gd" id="1_lw4e6"]
+[ext_resource type="Script" uid="uid://btek1uktt8gcq" path="res://Scripts/Pickables/pickable.gd" id="1_l3e67"]
+[ext_resource type="Script" uid="uid://dwno3jpn360lh" path="res://Scripts/Pickables/Firecracker/cara_de_diablo.gd" id="1_lw4e6"]
 [ext_resource type="Texture2D" uid="uid://h5ruiar43ns1" path="res://Assets/Firecracker/cara_de_diablo.png" id="2_l3e67"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dfhmt"]
@@ -30,11 +30,10 @@ animations = [{
 script = ExtResource("1_l3e67")
 firecracker = true
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1511535332 node_paths=PackedStringArray("stun_timer", "detonation_timer")]
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1511535332 node_paths=PackedStringArray("detonation_timer")]
 script = ExtResource("1_lw4e6")
 danger_level = 3
-stun_time = 3.0
-stun_timer = NodePath("Stun")
+stun_time = 5.0
 candy_tax = 3
 detonation_time = 3.0
 spark_offset = Vector2(74, 222)
@@ -48,7 +47,5 @@ autoplay = "default"
 polygon = PackedVector2Array(-167, -24, -102, 104, -18, 222, -8, 223, 11, 219, 81, 100, 249, -221, 143, -151, -188, -153, -246, -197)
 
 [node name="Detonation" type="Timer" parent="RigidBody2D" unique_id=956544554]
-
-[node name="Stun" type="Timer" parent="RigidBody2D" unique_id=1090935656]
 
 [connection signal="input_event" from="RigidBody2D" to="." method="_on_rigid_body_2d_input_event"]

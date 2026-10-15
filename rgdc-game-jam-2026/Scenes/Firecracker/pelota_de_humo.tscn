@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cnkvhshgyp8pl"]
 
-[ext_resource type="Script" uid="uid://btek1uktt8gcq" path="res://Scripts/pickable.gd" id="1_olbto"]
-[ext_resource type="Script" uid="uid://bot0w5qtfs1y3" path="res://Scripts/Firecracker/pelota_de_humo.gd" id="2_u6h0k"]
+[ext_resource type="Script" uid="uid://btek1uktt8gcq" path="res://Scripts/Pickables/pickable.gd" id="1_olbto"]
+[ext_resource type="Script" uid="uid://bot0w5qtfs1y3" path="res://Scripts/Pickables/Firecracker/pelota_de_humo.gd" id="2_u6h0k"]
 [ext_resource type="Texture2D" uid="uid://jxwasekwgyj6" path="res://Assets/Firecracker/pelota_de_humo_amarillo.png" id="3_2760t"]
 [ext_resource type="Texture2D" uid="uid://dqpaec72vc30j" path="res://Assets/Firecracker/pelota_de_humo_azul.png" id="4_u3mrg"]
 [ext_resource type="Texture2D" uid="uid://ynx7vxeij8kv" path="res://Assets/Firecracker/pelota_de_humo_rosa.png" id="5_voxli"]

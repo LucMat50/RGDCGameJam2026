@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ct0478wondb6f"]
 
-[ext_resource type="Script" uid="uid://btek1uktt8gcq" path="res://Scripts/pickable.gd" id="1_jd8fd"]
-[ext_resource type="Script" uid="uid://bwmxv6fxhyen3" path="res://Scripts/Firecracker/chifladores.gd" id="2_7lw44"]
+[ext_resource type="Script" uid="uid://btek1uktt8gcq" path="res://Scripts/Pickables/pickable.gd" id="1_jd8fd"]
+[ext_resource type="Script" uid="uid://bwmxv6fxhyen3" path="res://Scripts/Pickables/Firecracker/chifladores.gd" id="2_7lw44"]
 [ext_resource type="Texture2D" uid="uid://daw0qn4pq1jmw" path="res://Assets/Firecracker/chifladores.png" id="3_o0epd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hlull"]

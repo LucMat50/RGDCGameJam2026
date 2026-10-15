@@ -19,6 +19,7 @@ var idle_frames: Array = [
 # ANIMATION VARIABLES
 var current_frame: int = 0
 var anim_timer: float = 0
+var stun_timer: float = 0
 
 # EXPORT VARIABLES
 @export var fps: float = 0.3							#time per frame

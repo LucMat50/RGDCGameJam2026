@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dyg707upjbxop"]
 
 [ext_resource type="Texture2D" uid="uid://dntql13g8ysv7" path="res://icon.svg" id="1_bresn"]
-[ext_resource type="Script" uid="uid://btek1uktt8gcq" path="res://Scripts/pickable.gd" id="2_eqx18"]
+[ext_resource type="Script" uid="uid://btek1uktt8gcq" path="res://Scripts/Pickables/pickable.gd" id="2_eqx18"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bresn"]
 size = Vector2(117, 119)

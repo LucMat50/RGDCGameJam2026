@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b6dmhu1ho1stk"]
 
-[ext_resource type="Script" uid="uid://btek1uktt8gcq" path="res://Scripts/pickable.gd" id="1_xjhhf"]
-[ext_resource type="Script" uid="uid://x2hqb53wx4cl" path="res://Scripts/Firecracker/abejita.gd" id="2_ev5fy"]
+[ext_resource type="Script" uid="uid://btek1uktt8gcq" path="res://Scripts/Pickables/pickable.gd" id="1_xjhhf"]
+[ext_resource type="Script" uid="uid://x2hqb53wx4cl" path="res://Scripts/Pickables/Firecracker/abejita.gd" id="2_ev5fy"]
 [ext_resource type="Texture2D" uid="uid://d0dsb2mnv5yb7" path="res://Assets/Firecracker/abejita_azul.png" id="3_natlt"]
 [ext_resource type="Texture2D" uid="uid://3dba606ohu76" path="res://Assets/Firecracker/abejita_morada.png" id="4_k1y7q"]
 [ext_resource type="Texture2D" uid="uid://d84n8p4xsoc7" path="res://Assets/Firecracker/abejita_rosa.png" id="5_s54d8"]
@@ -70,11 +70,10 @@ animations = [{
 script = ExtResource("1_xjhhf")
 firecracker = true
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1358118968 node_paths=PackedStringArray("stun_timer", "detonation_timer")]
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1358118968 node_paths=PackedStringArray("detonation_timer")]
 script = ExtResource("2_ev5fy")
 danger_level = 1
-stun_time = 3.0
-stun_timer = NodePath("Stun")
+stun_time = 2.0
 candy_tax = 2
 detonation_time = 5.0
 spark_offset = Vector2(31, -148)

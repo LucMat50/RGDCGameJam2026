@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://dvj1vij7wyrt"]
+
+[ext_resource type="FontFile" uid="uid://b5amclhdpl0aw" path="res://Assets/DynaPuff-VariableFont_wdth,wght.ttf" id="1_so3ah"]
+
+[resource]
+font = ExtResource("1_so3ah")
+font_size = 80

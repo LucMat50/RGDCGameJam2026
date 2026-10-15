@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://dui6vtsg4mwtm"]
+
+[ext_resource type="Script" uid="uid://b366i40wvmkb7" path="res://Scripts/life.gd" id="1_0613k"]
+[ext_resource type="Texture2D" uid="uid://bnde6fjltelh1" path="res://Assets/Lives/Dead.png" id="1_wvhb1"]
+[ext_resource type="Texture2D" uid="uid://qwn3dvwmnlbm" path="res://Assets/Lives/Life.png" id="2_64xyt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvhb1"]
+atlas = ExtResource("2_64xyt")
+region = Rect2(0, 0, 480, 420)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64xyt"]
+atlas = ExtResource("2_64xyt")
+region = Rect2(480, 0, 480, 420)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tpx6p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvhb1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64xyt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8es6c"]
+atlas = ExtResource("1_wvhb1")
+region = Rect2(0, 0, 480, 420)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohwyk"]
+atlas = ExtResource("1_wvhb1")
+region = Rect2(480, 0, 480, 420)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jdhnd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8es6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohwyk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Life" type="Control" unique_id=639930525]
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_0613k")
+
+[node name="Default" type="AnimatedSprite2D" parent="." unique_id=315286827]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_tpx6p")
+autoplay = "default"
+
+[node name="Dead" type="AnimatedSprite2D" parent="." unique_id=4441628]
+visible = false
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_jdhnd")
+autoplay = "default"
+frame = 1
+frame_progress = 0.29408926

@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://b2hl33xlpxldv"]
+
+[ext_resource type="Script" uid="uid://6qi5io3wmjsj" path="res://Scripts/hud.gd" id="1_e0onf"]
+[ext_resource type="LabelSettings" uid="uid://dvj1vij7wyrt" path="res://Assets/Labels/hudLabel.tres" id="2_a56j6"]
+[ext_resource type="PackedScene" uid="uid://dui6vtsg4mwtm" path="res://Scenes/HUD/life.tscn" id="3_6fbih"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1662777996]
+script = ExtResource("1_e0onf")
+
+[node name="LivesContainer" type="HBoxContainer" parent="." unique_id=1818946652]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -878.0
+offset_bottom = 219.0
+grow_horizontal = 0
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="Life1" parent="LivesContainer" unique_id=639930525 instance=ExtResource("3_6fbih")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Life2" parent="LivesContainer" unique_id=362641766 instance=ExtResource("3_6fbih")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Life3" parent="LivesContainer" unique_id=1497509847 instance=ExtResource("3_6fbih")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Life4" parent="LivesContainer" unique_id=541229250 instance=ExtResource("3_6fbih")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Life5" parent="LivesContainer" unique_id=444650925 instance=ExtResource("3_6fbih")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="GameStats" type="VBoxContainer" parent="." unique_id=487466487]
+offset_left = 65.0
+offset_top = 3.0
+offset_right = 635.0
+offset_bottom = 347.0
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="CandyCounter" type="Label" parent="GameStats" unique_id=1518573458]
+layout_mode = 2
+text = "CANDY: 0"
+label_settings = ExtResource("2_a56j6")
+
+[node name="TimeElapsed" type="Label" parent="GameStats" unique_id=175966434]
+layout_mode = 2
+text = "TIME: 00:00"
+label_settings = ExtResource("2_a56j6")
+vertical_alignment = 1

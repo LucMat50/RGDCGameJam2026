@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://04cge6jng4i7"]
 
-[ext_resource type="Script" uid="uid://btek1uktt8gcq" path="res://Scripts/pickable.gd" id="1_ykl4v"]
-[ext_resource type="Script" uid="uid://7vx2uvedgcm8" path="res://Scripts/Firecracker/firecracker.gd" id="2_bwe70"]
+[ext_resource type="Script" uid="uid://btek1uktt8gcq" path="res://Scripts/Pickables/pickable.gd" id="1_ykl4v"]
+[ext_resource type="Script" uid="uid://7vx2uvedgcm8" path="res://Scripts/Pickables/Firecracker/firecracker.gd" id="2_bwe70"]
 [ext_resource type="Texture2D" uid="uid://d0dsb2mnv5yb7" path="res://Assets/Firecracker/abejita_azul.png" id="3_hed7x"]
 [ext_resource type="Texture2D" uid="uid://3dba606ohu76" path="res://Assets/Firecracker/abejita_morada.png" id="4_bslid"]
 [ext_resource type="Texture2D" uid="uid://d84n8p4xsoc7" path="res://Assets/Firecracker/abejita_rosa.png" id="5_d6yyn"]

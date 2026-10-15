@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://5x1qhytwscmk"]
 
-[ext_resource type="Script" uid="uid://btek1uktt8gcq" path="res://Scripts/pickable.gd" id="1_l1wnr"]
+[ext_resource type="Script" uid="uid://btek1uktt8gcq" path="res://Scripts/Pickables/pickable.gd" id="1_l1wnr"]
 [ext_resource type="Texture2D" uid="uid://df0qhepf6edus" path="res://Assets/Firecracker/cebollita_azul.png" id="2_gvse2"]
-[ext_resource type="Script" uid="uid://d16innkx22ldx" path="res://Scripts/Firecracker/cebollita.gd" id="2_x25ci"]
+[ext_resource type="Script" uid="uid://d16innkx22ldx" path="res://Scripts/Pickables/Firecracker/cebollita.gd" id="2_x25ci"]
 [ext_resource type="Texture2D" uid="uid://bv7n27s6hgw2g" path="res://Assets/Firecracker/cebollita_morada.png" id="3_x25ci"]
 [ext_resource type="Texture2D" uid="uid://b2edlq3gykvbk" path="res://Assets/Firecracker/cebollita_rosa.png" id="4_6gast"]
 [ext_resource type="Texture2D" uid="uid://d16so0rfnk3yh" path="res://Assets/Firecracker/cebollita_verde.png" id="5_fcrm8"]
@@ -90,11 +90,10 @@ animations = [{
 script = ExtResource("1_l1wnr")
 firecracker = true
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1195985898 node_paths=PackedStringArray("stun_timer", "detonation_timer")]
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1195985898 node_paths=PackedStringArray("detonation_timer")]
 script = ExtResource("2_x25ci")
 danger_level = 1
-stun_time = 2.0
-stun_timer = NodePath("Stun")
+stun_time = 3.0
 candy_tax = 1
 detonation_time = 6.0
 spark_offset = Vector2(-6, -107)

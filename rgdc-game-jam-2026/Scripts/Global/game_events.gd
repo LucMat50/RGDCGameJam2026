@@ -1,4 +1,6 @@
 extends Node
 
 signal filled_candy_bag
+signal boom(danger: int, tax: int, type: String)
+signal lost_life(stun: float)
 signal game_over

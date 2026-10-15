@@ -11,6 +11,9 @@ extends Node2D
 # BOOLEAN VARIABLES
 var is_held: bool = false
 
+# FLOAT VARIABLES
+var stun_timer: float = 0.0
+
 # NODE VARIABLES	
 var mouse_pin: PinJoint2D
 var fake_body: StaticBody2D
@@ -28,6 +31,7 @@ func _ready():
 	
 	if candy and !firecracker:
 		rigid_body.add_to_group("Candy")
+		
 	elif firecracker and !candy:
 		rigid_body.add_to_group("Firecracker")
 	

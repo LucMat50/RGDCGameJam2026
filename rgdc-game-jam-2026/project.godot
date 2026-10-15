@@ -24,6 +24,7 @@ GameEvents="*uid://borm5lexw2ue4"
 
 window/size/viewport_width=2000
 window/size/viewport_height=1500
+window/stretch/mode="canvas_items"
 
 [file_customization]
 
