@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bf72tadq42s4g"]
+
+[ext_resource type="Texture2D" uid="uid://eqrfr24r8qr3" path="res://Assets/Particles/Explosion.png" id="1_b6uhe"]
+
+[sub_resource type="Gradient" id="Gradient_r3pws"]
+colors = PackedColorArray(0.9647059, 0.8, 0, 1, 0.92348456, 0, 0.20136604, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_b6uhe"]
+gradient = SubResource("Gradient_r3pws")
+
+[sub_resource type="Curve" id="Curve_elejt"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_dwx3y"]
+curve = SubResource("Curve_elejt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r3pws"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 60.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 98, 0)
+damping_min = 30.000002
+damping_max = 30.000002
+scale_min = 0.5
+scale_max = 12.0
+scale_curve = SubResource("CurveTexture_dwx3y")
+color_ramp = SubResource("GradientTexture1D_b6uhe")
+
+[node name="Explosion" type="Node2D" unique_id=561904064]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1636972887]
+texture_filter = 1
+scale = Vector2(10, 10)
+emitting = false
+amount = 15
+texture = ExtResource("1_b6uhe")
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_r3pws")

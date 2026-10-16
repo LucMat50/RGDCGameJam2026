@@ -22,6 +22,7 @@ var random_firecracker: int
 @export var detonation_time: float
 @export var spark_offset: Vector2
 @export var detonation_type: String
+@export var detonation_color: Color
 @export var detonation_boom: AudioStreamPlayer
 
 # ONREADY VARIABLES
@@ -29,10 +30,9 @@ var random_firecracker: int
 
 # CONSTANT VARIABLES
 const SPARK_PARTICLES = preload("res://Scenes/VFX/spark.tscn")
-
-# SIGNALS
-#signal boom(danger: int, tax: int, type: String)
-#signal lost_life(stun: float)
+const SMOKE_PARTICLES = preload("res://Scenes/VFX/smoke.tscn")
+const EXPLOSION_PARTICLES = preload("res://Scenes/VFX/explosion.tscn")
+const CONFETTI_PARTICLES = preload("res://Scenes/VFX/confetti.tscn")
 
 # READY
 # starts detonation timer
@@ -66,5 +66,16 @@ func detonation():
 	if GameManager.hold:
 		print("SIGNAL LOST LIFE EMITTED")
 		GameEvents.lost_life.emit(stun_time)
-		
+	
+	explosion_particles()
 	queue_free()
+
+# EXPLOSION PARTICLES
+#	adds explosion to firecracker/firework
+func explosion_particles():
+	#var smoke = SMOKE_PARTICLES.instantiate()
+	#smoke.position = global_position
+	#get_tree().current_scene.add_child(smoke)
+	var explosion = EXPLOSION_PARTICLES.instantiate()
+	explosion.position = global_position
+	GameManager.add_child(explosion)

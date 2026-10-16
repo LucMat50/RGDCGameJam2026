@@ -41,6 +41,7 @@ func _process(delta: float) -> void:
 #	decreases life counter by 1
 func lose_life():
 	life_counter -= 1
+	print("LIFE COUNTER: " + str(life_counter))
 	
 	for i in lives.size():
 		lives[i].set_alive()
