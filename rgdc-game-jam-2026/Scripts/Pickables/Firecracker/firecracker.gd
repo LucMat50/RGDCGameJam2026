@@ -21,18 +21,18 @@ var random_firecracker: int
 # time before detonating after held
 @export var detonation_time: float
 @export var spark_offset: Vector2
-@export var detonation_type: String
-@export var detonation_color: Color
-@export var detonation_boom: AudioStreamPlayer
+@export var detonation_type: PackedScene
+@export var detonation_sound: String
 
 # ONREADY VARIABLES
 @export var detonation_timer: Timer
 
+# AUDIO STREAM PLAYER
+var boom_sound = AudioStreamPlayer.new()
+var boom_particles = detonation_type
+
 # CONSTANT VARIABLES
 const SPARK_PARTICLES = preload("res://Scenes/VFX/spark.tscn")
-const SMOKE_PARTICLES = preload("res://Scenes/VFX/smoke.tscn")
-const EXPLOSION_PARTICLES = preload("res://Scenes/VFX/explosion.tscn")
-const CONFETTI_PARTICLES = preload("res://Scenes/VFX/confetti.tscn")
 
 # READY
 # starts detonation timer
@@ -40,6 +40,9 @@ func _ready() -> void:
 	spark_particles()
 	detonation_timer.start(detonation_time)
 	detonation_timer.timeout.connect(detonation)
+	
+	boom_sound.stream = load(detonation_sound)
+	GameManager.add_child(boom_sound)
 
 # SPARK PARTICLES
 #	instantiate and set spark at beginning of the wick
@@ -61,21 +64,21 @@ func missed():
 #	emits signal with firecracker information
 func detonation():
 	print("KABOOM")
+	
 	GameEvents.boom.emit(danger_level, candy_tax, detonation_type)
 	
-	if GameManager.hold:
+	if get_parent().is_held:
 		print("SIGNAL LOST LIFE EMITTED")
 		GameEvents.lost_life.emit(stun_time)
 	
+	boom_sound.play()
 	explosion_particles()
 	queue_free()
 
 # EXPLOSION PARTICLES
 #	adds explosion to firecracker/firework
 func explosion_particles():
-	#var smoke = SMOKE_PARTICLES.instantiate()
-	#smoke.position = global_position
-	#get_tree().current_scene.add_child(smoke)
-	var explosion = EXPLOSION_PARTICLES.instantiate()
-	explosion.position = global_position
-	GameManager.add_child(explosion)
+	pass
+	#var explosion = boom_particles.instantiate()
+	#explosion.position = global_position
+	#GameManager.add_child(explosion)

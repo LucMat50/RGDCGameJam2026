@@ -37,6 +37,7 @@ stun_time = 5.0
 candy_tax = 3
 detonation_time = 3.0
 spark_offset = Vector2(74, 222)
+detonation_sound = "res://Sound/cara_de_diablo.mp3"
 detonation_timer = NodePath("Detonation")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D" unique_id=1726887046]

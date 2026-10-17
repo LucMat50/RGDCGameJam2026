@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://1r71gbov8mdu"]
+
+[ext_resource type="Texture2D" uid="uid://cdq5jkwxyoe8l" path="res://Assets/Particles/Smoke.png" id="1_372dr"]
+
+[sub_resource type="Curve" id="Curve_k4fsy"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_372dr"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Smoke_Amarillo" type="Node2D" unique_id=202356857]
+
+[node name="GPUParticles2D" type="CPUParticles2D" parent="." unique_id=1081465465]
+texture_filter = 1
+scale = Vector2(9, 9)
+emitting = false
+amount = 30
+texture = ExtResource("1_372dr")
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 30
+draw_order = 1
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 25.0
+initial_velocity_max = 75.0
+damping_min = 26.923
+damping_max = 26.923
+scale_amount_min = 0.5
+scale_amount_max = 60.0
+scale_amount_curve = SubResource("Curve_k4fsy")
+color = Color(1, 0.7372549, 0.10980392, 1)
+color_ramp = SubResource("Gradient_372dr")
