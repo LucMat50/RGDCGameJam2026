@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://btek1uktt8gcq" path="res://Scripts/Pickables/pickable.gd" id="1_dosla"]
 [ext_resource type="Script" uid="uid://bv7c4i66mbqyt" path="res://Scripts/Pickables/Firecracker/paloma.gd" id="2_ruk4v"]
 [ext_resource type="Texture2D" uid="uid://du1ej7u031h0v" path="res://Assets/Firecracker/paloma.png" id="3_a3ehn"]
+[ext_resource type="PackedScene" uid="uid://b1b53ppeetcco" path="res://Scenes/VFX/explosion_paloma.tscn" id="4_ndi02"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j753j"]
 atlas = ExtResource("3_a3ehn")
@@ -35,6 +36,7 @@ script = ExtResource("2_ruk4v")
 stun_time = 5.0
 detonation_time = 5.0
 spark_offset = Vector2(-28, 169)
+detonation_type = ExtResource("4_ndi02")
 detonation_sound = "res://Sound/paloma.mp3"
 detonation_timer = NodePath("Detonation")
 

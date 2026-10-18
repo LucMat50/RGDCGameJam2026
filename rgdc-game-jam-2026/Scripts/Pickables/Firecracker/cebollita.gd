@@ -20,3 +20,4 @@ func _ready() -> void:
 	super()
 	random_color = randi_range(1,4)
 	color_anim.play("cebollita" + color_dict[random_color])
+	detonation_type = load("res://Scenes/VFX/Cebollita/explosion_cebollita%s.tscn" % color_dict[random_color])

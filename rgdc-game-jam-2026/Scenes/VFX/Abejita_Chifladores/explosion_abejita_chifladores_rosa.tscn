@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cpxrqv6bjjcjr"]
+
+[ext_resource type="Texture2D" uid="uid://ceu4lb0bme2qo" path="res://Assets/Particles/Spark_Explosion.png" id="1_28llr"]
+
+[sub_resource type="Curve" id="Curve_mknvp"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_kusqf"]
+colors = PackedColorArray(1, 0.3137255, 0.36078432, 1, 1, 0.33333334, 0.69803923, 1)
+
+[node name="explosion_abejita_chifladores" type="Node2D" unique_id=1835543333]
+
+[node name="GPUParticles2D" type="CPUParticles2D" parent="." unique_id=1514635320]
+scale = Vector2(4, 4)
+emitting = false
+amount = 25
+texture = ExtResource("1_28llr")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 30
+draw_order = 1
+spread = 180.0
+gravity = Vector2(0, 98)
+initial_velocity_min = 45.0
+initial_velocity_max = 70.0
+damping_min = 28.000002
+damping_max = 28.000002
+scale_amount_min = 0.5
+scale_amount_max = 90.0
+scale_amount_curve = SubResource("Curve_mknvp")
+color_ramp = SubResource("Gradient_kusqf")

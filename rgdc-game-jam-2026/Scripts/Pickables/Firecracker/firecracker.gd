@@ -21,7 +21,6 @@ var random_firecracker: int
 # time before detonating after held
 @export var detonation_time: float
 @export var spark_offset: Vector2
-@export var detonation_type: PackedScene
 @export var detonation_sound: String
 
 # ONREADY VARIABLES
@@ -29,7 +28,9 @@ var random_firecracker: int
 
 # AUDIO STREAM PLAYER
 var boom_sound = AudioStreamPlayer.new()
-var boom_particles = detonation_type
+
+# PACKED SCENE
+var detonation_type: PackedScene
 
 # CONSTANT VARIABLES
 const SPARK_PARTICLES = preload("res://Scenes/VFX/spark.tscn")
@@ -65,7 +66,7 @@ func missed():
 func detonation():
 	print("KABOOM")
 	
-	GameEvents.boom.emit(danger_level, candy_tax, detonation_type)
+	GameEvents.boom.emit(danger_level, candy_tax)
 	
 	if get_parent().is_held:
 		print("SIGNAL LOST LIFE EMITTED")
@@ -78,7 +79,11 @@ func detonation():
 # EXPLOSION PARTICLES
 #	adds explosion to firecracker/firework
 func explosion_particles():
-	pass
-	#var explosion = boom_particles.instantiate()
-	#explosion.position = global_position
-	#GameManager.add_child(explosion)
+	var explosion = detonation_type.instantiate()
+	
+	for child in explosion.get_children():
+		if child is CPUParticles2D or GPUParticles2D:
+			child.restart()
+	
+	explosion.position = global_position
+	GameManager.add_child(explosion)

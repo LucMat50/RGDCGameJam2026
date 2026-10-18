@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://b1b53ppeetcco"]
+
+[ext_resource type="Texture2D" uid="uid://cnpjiwhx6dhei" path="res://Assets/Particles/paper.png" id="1_ndac1"]
+
+[sub_resource type="Curve" id="Curve_ocmhv"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_t8cx6"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="explosion_paloma" type="Node2D" unique_id=1798832735]
+
+[node name="GPUParticles2D" type="CPUParticles2D" parent="." unique_id=1866552888]
+scale = Vector2(6, 6)
+emitting = false
+amount = 10
+texture = ExtResource("1_ndac1")
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 30
+draw_order = 1
+spread = 180.0
+gravity = Vector2(0, 98)
+initial_velocity_min = 45.0
+initial_velocity_max = 70.0
+damping_min = 60.000004
+damping_max = 100.00001
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+scale_amount_min = 0.08
+scale_amount_max = 0.79999995
+scale_amount_curve = SubResource("Curve_ocmhv")
+color = Color(1, 0.30980393, 0.65882355, 1)
+
+[node name="GPUParticles2D2" type="CPUParticles2D" parent="." unique_id=1283698919]
+scale = Vector2(5, 5)
+emitting = false
+texture = ExtResource("1_ndac1")
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 30
+draw_order = 1
+spread = 180.0
+gravity = Vector2(0, 98)
+initial_velocity_min = 45.0
+initial_velocity_max = 100.0
+damping_min = 28.577002
+damping_max = 29.346
+angle_min = 1.0728835e-05
+angle_max = 720.0
+scale_amount_min = 0.049999997
+scale_amount_max = 0.19999999
+scale_amount_curve = SubResource("Curve_t8cx6")
+color = Color(1, 0.65882355, 0.11764706, 1)

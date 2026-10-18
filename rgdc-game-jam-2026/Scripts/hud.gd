@@ -39,7 +39,7 @@ func _process(delta: float) -> void:
 
 # LOSE LIFE
 #	decreases life counter by 1
-func lose_life():
+func update_life():
 	life_counter -= 1
 	print("LIFE COUNTER: " + str(life_counter))
 	
@@ -53,9 +53,8 @@ func lose_life():
 #	sets stun timer
 func _on_lost_life(stun: float):
 	print("LOST LIFE RECEIVED")
-	lose_life()
+	update_life()
 	GameManager.hurt = true
-	GameManager.hold = false
 	
 	await get_tree().create_timer(stun).timeout
 	

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://2chqkpuiysld"]
+
+[ext_resource type="Texture2D" uid="uid://budsrtl7fkxka" path="res://Assets/Particles/Cebollita_Explosion.png" id="1_t8mth"]
+
+[sub_resource type="Curve" id="Curve_ksut8"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="explosion_cebollita_azul" type="Node2D" unique_id=789822585]
+
+[node name="GPUParticles2D" type="CPUParticles2D" parent="." unique_id=356611011]
+texture_filter = 1
+scale = Vector2(4, 4)
+emitting = false
+amount = 12
+texture = ExtResource("1_t8mth")
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 30
+draw_order = 1
+spread = 180.0
+gravity = Vector2(0, 200)
+initial_velocity_min = 45.0
+initial_velocity_max = 70.0
+damping_min = 27.693
+damping_max = 53.846
+scale_amount_max = 8.0
+scale_amount_curve = SubResource("Curve_ksut8")
+color = Color(0.16470589, 0.3254902, 1, 1)
+hue_variation_min = -0.26000002
+hue_variation_max = 0.23999996

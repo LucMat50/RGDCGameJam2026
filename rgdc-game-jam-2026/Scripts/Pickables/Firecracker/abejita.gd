@@ -19,3 +19,4 @@ func _ready() -> void:
 	super()
 	random_color = randi_range(1,3)
 	color_anim.play("abejita" + color_dict[random_color])
+	detonation_type = load("res://Scenes/VFX/Abejita_Chifladores/explosion_abejita_chifladores%s.tscn" % color_dict[random_color])
