@@ -4,6 +4,15 @@ extends RigidBody2D
 # INT VARIABLES
 var random_firecracker: int
 
+# VECTOR2 VARIABLES
+var last_position: Vector2
+
+# AUDIO STREAM PLAYER
+var boom_sound = AudioStreamPlayer.new()
+
+# PACKED SCENE
+var detonation_type: PackedScene
+
 # EXPORT VARIABLES
 # Danger Category
 @export_category("Danger Category")
@@ -22,15 +31,10 @@ var random_firecracker: int
 @export var detonation_time: float
 @export var spark_offset: Vector2
 @export var detonation_sound: String
-
-# ONREADY VARIABLES
 @export var detonation_timer: Timer
 
-# AUDIO STREAM PLAYER
-var boom_sound = AudioStreamPlayer.new()
-
-# PACKED SCENE
-var detonation_type: PackedScene
+@export_category("Position")
+@export var last_position_notifier: VisibleOnScreenNotifier2D 
 
 # CONSTANT VARIABLES
 const SPARK_PARTICLES = preload("res://Scenes/VFX/spark.tscn")
@@ -42,8 +46,14 @@ func _ready() -> void:
 	detonation_timer.start(detonation_time)
 	detonation_timer.timeout.connect(detonation)
 	
+	last_position_notifier.screen_exited.connect(detonation)
+	
 	boom_sound.stream = load(detonation_sound)
 	GameManager.add_child(boom_sound)
+
+func _process(_delta: float) -> void:
+	if last_position_notifier.is_on_screen():
+		last_position = global_position
 
 # SPARK PARTICLES
 #	instantiate and set spark at beginning of the wick
@@ -51,14 +61,6 @@ func spark_particles():
 	var spark = SPARK_PARTICLES.instantiate()
 	spark.position = spark_offset
 	self.add_child(spark)
-
-# OUT OF BOUNDS
-# 	blow up if out of view
-func out_of_bounds():
-	var screen_size = get_viewport_rect().size
-	if position.x in range(0, screen_size.x) or position.y in range(0, screen_size.y):
-		print("OUT OF BOUNDS")
-		detonation()
 
 # DETONATION
 #	emits signal with firecracker information
@@ -84,5 +86,5 @@ func explosion_particles():
 		if child is CPUParticles2D or GPUParticles2D:
 			child.restart()
 	
-	explosion.position = global_position
+	explosion.position = last_position
 	GameManager.add_child(explosion)

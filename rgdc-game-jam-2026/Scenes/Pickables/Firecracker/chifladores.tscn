@@ -34,13 +34,14 @@ height = 284.0
 script = ExtResource("1_jd8fd")
 firecracker = true
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1402781533 node_paths=PackedStringArray("detonation_timer")]
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1402781533 node_paths=PackedStringArray("detonation_timer", "last_position_notifier")]
 script = ExtResource("2_7lw44")
 stun_time = 3.0
 detonation_time = 8.0
 spark_offset = Vector2(-10, -157)
 detonation_sound = "res://Sound/chifladores.mp3"
 detonation_timer = NodePath("Detonation")
+last_position_notifier = NodePath("VisibleOnScreenNotifier2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D" unique_id=81849150]
 sprite_frames = SubResource("SpriteFrames_3n3iu")
@@ -51,5 +52,7 @@ position = Vector2(-4, 32)
 shape = SubResource("CapsuleShape2D_7mwx5")
 
 [node name="Detonation" type="Timer" parent="RigidBody2D" unique_id=2014485242]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="RigidBody2D" unique_id=1285032874]
 
 [connection signal="input_event" from="RigidBody2D" to="." method="_on_rigid_body_2d_input_event"]

@@ -90,7 +90,7 @@ animations = [{
 script = ExtResource("1_l1wnr")
 firecracker = true
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1195985898 node_paths=PackedStringArray("detonation_timer")]
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1195985898 node_paths=PackedStringArray("detonation_timer", "last_position_notifier")]
 script = ExtResource("2_x25ci")
 danger_level = 1
 stun_time = 3.0
@@ -99,6 +99,7 @@ detonation_time = 6.0
 spark_offset = Vector2(-6, -107)
 detonation_sound = "res://Sound/cebollita.mp3"
 detonation_timer = NodePath("Detonation")
+last_position_notifier = NodePath("VisibleOnScreenNotifier2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D" unique_id=1488908273]
 sprite_frames = SubResource("SpriteFrames_7kuoq")
@@ -108,5 +109,7 @@ animation = &"cebollita_verde"
 polygon = PackedVector2Array(6, -120, -17, -118, -10, -24, -23, 10, -32, 43, -31, 84, -16, 111, -10, 117, -1, 121, 12, 118, 20, 113, 30, 94, 33, 67, 32, 37, 22, 4, 10, -26)
 
 [node name="Detonation" type="Timer" parent="RigidBody2D" unique_id=1305144193]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="RigidBody2D" unique_id=1483909477]
 
 [connection signal="input_event" from="RigidBody2D" to="." method="_on_rigid_body_2d_input_event"]

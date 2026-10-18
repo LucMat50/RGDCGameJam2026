@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://btek1uktt8gcq" path="res://Scripts/Pickables/pickable.gd" id="1_dosla"]
 [ext_resource type="Script" uid="uid://bv7c4i66mbqyt" path="res://Scripts/Pickables/Firecracker/paloma.gd" id="2_ruk4v"]
 [ext_resource type="Texture2D" uid="uid://du1ej7u031h0v" path="res://Assets/Firecracker/paloma.png" id="3_a3ehn"]
-[ext_resource type="PackedScene" uid="uid://b1b53ppeetcco" path="res://Scenes/VFX/explosion_paloma.tscn" id="4_ndi02"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j753j"]
 atlas = ExtResource("3_a3ehn")
@@ -31,14 +30,14 @@ animations = [{
 script = ExtResource("1_dosla")
 firecracker = true
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=674117760 node_paths=PackedStringArray("detonation_timer")]
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=674117760 node_paths=PackedStringArray("detonation_timer", "last_position_notifier")]
 script = ExtResource("2_ruk4v")
 stun_time = 5.0
 detonation_time = 5.0
 spark_offset = Vector2(-28, 169)
-detonation_type = ExtResource("4_ndi02")
 detonation_sound = "res://Sound/paloma.mp3"
 detonation_timer = NodePath("Detonation")
+last_position_notifier = NodePath("VisibleOnScreenNotifier2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D" unique_id=1876582474]
 sprite_frames = SubResource("SpriteFrames_suwhm")
@@ -48,5 +47,7 @@ autoplay = "default"
 polygon = PackedVector2Array(6, -174, -129, -58, -234, 66, 8, 70, 229, 64, 129, -62)
 
 [node name="Detonation" type="Timer" parent="RigidBody2D" unique_id=435056520]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="RigidBody2D" unique_id=1991456267]
 
 [connection signal="input_event" from="RigidBody2D" to="." method="_on_rigid_body_2d_input_event"]

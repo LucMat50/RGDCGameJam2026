@@ -30,7 +30,7 @@ animations = [{
 script = ExtResource("1_l3e67")
 firecracker = true
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1511535332 node_paths=PackedStringArray("detonation_timer")]
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1511535332 node_paths=PackedStringArray("detonation_timer", "last_position_notifier")]
 script = ExtResource("1_lw4e6")
 danger_level = 3
 stun_time = 5.0
@@ -39,6 +39,7 @@ detonation_time = 3.0
 spark_offset = Vector2(74, 222)
 detonation_sound = "res://Sound/cara_de_diablo.mp3"
 detonation_timer = NodePath("Detonation")
+last_position_notifier = NodePath("VisibleOnScreenNotifier2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D" unique_id=1726887046]
 sprite_frames = SubResource("SpriteFrames_6br3h")
@@ -48,5 +49,7 @@ autoplay = "default"
 polygon = PackedVector2Array(-167, -24, -102, 104, -18, 222, -8, 223, 11, 219, 81, 100, 249, -221, 143, -151, -188, -153, -246, -197)
 
 [node name="Detonation" type="Timer" parent="RigidBody2D" unique_id=956544554]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="RigidBody2D" unique_id=176575272]
 
 [connection signal="input_event" from="RigidBody2D" to="." method="_on_rigid_body_2d_input_event"]

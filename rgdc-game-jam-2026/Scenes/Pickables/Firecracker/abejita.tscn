@@ -70,7 +70,7 @@ animations = [{
 script = ExtResource("1_xjhhf")
 firecracker = true
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1358118968 node_paths=PackedStringArray("detonation_timer")]
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1358118968 node_paths=PackedStringArray("detonation_timer", "last_position_notifier")]
 script = ExtResource("2_ev5fy")
 danger_level = 1
 stun_time = 2.0
@@ -79,6 +79,7 @@ detonation_time = 5.0
 spark_offset = Vector2(31, -148)
 detonation_sound = "res://Sound/abejita.mp3"
 detonation_timer = NodePath("Detonation")
+last_position_notifier = NodePath("VisibleOnScreenNotifier2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D" unique_id=254186480]
 position = Vector2(4, -1)
@@ -89,5 +90,7 @@ animation = &"abejita_rosa"
 polygon = PackedVector2Array(-63, 8, -139, 19, -157, 28, -164, 41, -170, 55, -164, 72, -149, 83, -119, 87, -65, 83, -55, 84, -51, 115, -50, 147, -17, 145, 23, 141, 50, 138, 50, 113, 49, 86, 123, 82, 146, 72, 167, 53, 171, 21, 167, 2, 143, -7, 90, -5, 41, -2, 36, -46, -56, -36, -55, 6)
 
 [node name="Detonation" type="Timer" parent="RigidBody2D" unique_id=675177434]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="RigidBody2D" unique_id=1489864962]
 
 [connection signal="input_event" from="RigidBody2D" to="." method="_on_rigid_body_2d_input_event"]

@@ -28,6 +28,9 @@ func _ready() -> void:
 	var drop = get_tree().get_first_node_in_group("Candy")
 	drop.update_candy_count.connect(update_candy)
 
+# PROCESS
+#	updates time
+#	minutes:seconds:milliseconds
 func _process(delta: float) -> void:
 	time_elapsed += delta
 	
@@ -37,7 +40,7 @@ func _process(delta: float) -> void:
 	
 	time_label.text = "TIME: %02d:%02d:%02d" % [minutes, seconds, msec]
 
-# LOSE LIFE
+# UPDATE LIFE
 #	decreases life counter by 1
 func update_life():
 	life_counter -= 1
