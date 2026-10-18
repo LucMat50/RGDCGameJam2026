@@ -52,14 +52,13 @@ func spark_particles():
 	spark.position = spark_offset
 	self.add_child(spark)
 
-# MISSED
-# 	blow up if falls to the bottom of the screen
-func missed():
+# OUT OF BOUNDS
+# 	blow up if out of view
+func out_of_bounds():
 	var screen_size = get_viewport_rect().size
-	if global_position.y > screen_size.y:
-		if global_position.x in range(0, screen_size.x):
-			print("MISSED")
-			detonation()
+	if position.x in range(0, screen_size.x) or position.y in range(0, screen_size.y):
+		print("OUT OF BOUNDS")
+		detonation()
 
 # DETONATION
 #	emits signal with firecracker information

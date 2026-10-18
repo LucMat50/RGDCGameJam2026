@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 # INT VARIABLES
-var life_counter: int = 5
+var life_counter: int = 4
 
 # FLOAT VARIABLES
 var time_elapsed: float = 0
