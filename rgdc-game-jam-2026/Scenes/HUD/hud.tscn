@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b2hl33xlpxldv"]
 
 [ext_resource type="Script" uid="uid://6qi5io3wmjsj" path="res://Scripts/hud.gd" id="1_e0onf"]
-[ext_resource type="LabelSettings" uid="uid://dvj1vij7wyrt" path="res://Assets/Labels/hudLabel.tres" id="2_a56j6"]
+[ext_resource type="LabelSettings" uid="uid://dvj1vij7wyrt" path="res://Assets/Themes/hudLabel.tres" id="2_a56j6"]
 [ext_resource type="PackedScene" uid="uid://dui6vtsg4mwtm" path="res://Scenes/HUD/life.tscn" id="3_6fbih"]
 
 [node name="HUD" type="CanvasLayer" unique_id=1662777996]

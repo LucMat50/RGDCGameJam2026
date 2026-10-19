@@ -1,0 +1,16 @@
+[gd_resource type="Theme" format=3 uid="uid://he1ns65qvk6j"]
+
+[ext_resource type="FontFile" uid="uid://b5amclhdpl0aw" path="res://Assets/DynaPuff-VariableFont_wdth,wght.ttf" id="1_j6408"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_16vfv"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xgdai"]
+
+[resource]
+default_font = ExtResource("1_j6408")
+default_font_size = 80
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/styles/hover = SubResource("StyleBoxFlat_16vfv")
+Button/styles/normal = SubResource("StyleBoxEmpty_xgdai")

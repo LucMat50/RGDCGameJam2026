@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://vlr0aecw5mm5"]
+
+[node name="PauseMenu" type="Control" unique_id=1742897843]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=907486904]
+layout_mode = 0
+offset_left = 980.0
+offset_top = 730.0
+offset_right = 1031.0
+offset_bottom = 770.0
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1848623765]
+layout_mode = 2
+text = "PAUSE"
+
+[node name="Resume" type="Button" parent="VBoxContainer" unique_id=889389939]
+layout_mode = 2
+text = "RESUME"
+
+[node name="Back" type="Button" parent="VBoxContainer" unique_id=1225823080]
+layout_mode = 2
+text = "BACK TO MENU"
+
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=971837566]
+layout_mode = 2
+text = "QUIT GAME"
