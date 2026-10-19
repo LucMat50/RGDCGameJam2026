@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://wegyk8vx3let"]
+
+[node name="GameOver" type="Control" unique_id=1882706428]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="." unique_id=787603095]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "GAME OVER"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=465619680]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Retry" type="Button" parent="VBoxContainer" unique_id=1283302109]
+layout_mode = 2
+text = "RETRY"
+
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=1408020867]
+layout_mode = 2
+text = "QUIT"

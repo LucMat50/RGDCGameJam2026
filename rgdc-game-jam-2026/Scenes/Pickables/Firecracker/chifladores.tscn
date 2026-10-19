@@ -36,7 +36,9 @@ firecracker = true
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1402781533 node_paths=PackedStringArray("detonation_timer", "last_position_notifier")]
 script = ExtResource("2_7lw44")
+danger_level = 2
 stun_time = 3.0
+candy_tax = 3
 detonation_time = 8.0
 spark_offset = Vector2(-10, -157)
 detonation_sound = "res://Sound/chifladores.mp3"

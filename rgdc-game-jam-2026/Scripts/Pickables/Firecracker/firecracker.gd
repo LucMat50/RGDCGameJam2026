@@ -65,13 +65,16 @@ func spark_particles():
 # DETONATION
 #	emits signal with firecracker information
 func detonation():
-	print("KABOOM")
+	
+	var screen_size = get_viewport_rect().size
 	
 	GameEvents.boom.emit(danger_level, candy_tax)
 	
-	if get_parent().is_held:
+	if get_parent().is_held or last_position.y > screen_size.y:
 		print("SIGNAL LOST LIFE EMITTED")
+		GameManager.candy_points -= candy_tax
 		GameEvents.lost_life.emit(stun_time)
+
 	
 	boom_sound.play()
 	explosion_particles()

@@ -15,9 +15,12 @@ extends Marker2D
 var random_firecracker: int
 var random_scene: int
 var current_wave: int = 1
+var spawn_time_max: int = 9
+var spawn_time_min: int = 4
 
 # FLOAT VARIABLES
 var spawn_time: float
+
 
 # BOOLEAN VARIABLES
 var normal_spawning: bool = false
@@ -26,21 +29,19 @@ var chaos_spawning: bool = false
 # ONREADY VARIABLES
 @onready var spawn_timer: Timer = $Timer
 
-# DICTIONARIES
-var firecracker_probability: Dictionary = {
-	0: 0.25,
-	1: 0.05,
-	2: 0.15,
-	3: 0.25,
-	4: 0.30
-}
-
 # READY
 #	spawns candy or firecracker
 func _ready() -> void:
 	set_spawn_time()
 	spawn_timer.start(spawn_time)
 	spawn_timer.timeout.connect(spawn_candy_firecracker)
+
+func _process(_delta: float) -> void:
+	var seconds := int(GameManager.current_time) % 60
+	
+	while spawn_time_max > spawn_time_min:
+		if seconds % 30 == 0:
+			spawn_time_max -= 1
 
 # SPAWN CANDY / FIRECRACKER
 #	calls spawn_candy or spawn_firecracker
@@ -73,7 +74,7 @@ func spawn_firecracker():
 # SET SPAWN TIME
 #	throughout wave
 func set_spawn_time():
-	spawn_time = randf_range(3,9)
+	spawn_time = randf_range(3,spawn_time_max)
 
 # RAAA CANDY TIME
 #	near end of wave 

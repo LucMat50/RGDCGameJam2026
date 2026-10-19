@@ -8,7 +8,7 @@ var time_elapsed: float = 0
 
 # ONREADY VARIABLES
 #	counter and time taken
-@onready var candy_counter = $GameStats/CandyCounter
+@onready var candy_label = $GameStats/CandyCounter
 @onready var time_label = $GameStats/TimeElapsed
 
 #	Lives
@@ -25,14 +25,15 @@ var time_elapsed: float = 0
 func _ready() -> void:
 	lives = [life1, life2, life3, life4, life5]
 	GameEvents.lost_life.connect(_on_lost_life)
-	var drop = get_tree().get_first_node_in_group("Candy")
-	drop.update_candy_count.connect(update_candy)
 
 # PROCESS
 #	updates time
 #	minutes:seconds:milliseconds
 func _process(delta: float) -> void:
+	candy_label.text = "CANDY: " + str(GameManager.candy_points)
+	
 	time_elapsed += delta
+	GameManager.current_time = time_elapsed
 	
 	var minutes := int(time_elapsed) / 60
 	var seconds := int(time_elapsed) % 60
@@ -44,12 +45,16 @@ func _process(delta: float) -> void:
 #	decreases life counter by 1
 func update_life():
 	life_counter -= 1
+	GameManager.lives -= 1
 	print("LIFE COUNTER: " + str(life_counter))
 	
-	for i in lives.size():
-		lives[i].set_alive()
-		if i > life_counter:
-			lives[i].set_dead()
+	if GameManager.lives > 0:
+		for i in lives.size():
+			lives[i].set_alive()
+			if i > life_counter:
+				lives[i].set_dead()
+	else:
+		pass
 
 # LOST LIFE
 #	calls lose life
@@ -62,8 +67,3 @@ func _on_lost_life(stun: float):
 	await get_tree().create_timer(stun).timeout
 	
 	GameManager.hurt = false
-
-# UPDATE CANDY
-# 	increments candy points
-func update_candy(candy_count: int):
-	candy_counter.text = "CANDY: " + str(candy_count)
