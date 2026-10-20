@@ -12,6 +12,13 @@ var lives: int = 5
 var hold: bool = false
 var hurt: bool = false
 
+func _ready() -> void:
+	GameManager.candy_points = 0
+	GameEvents.game_over.connect(on_game_over)
+
 func _process(_delta: float) -> void:
 	if candy_points < 0:
 		candy_points = 0
+
+func on_game_over():
+	Transition.change_scene("res://Scenes/Menus/game_over.tscn", "fade", Color(1,1,1))

@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://k7upeosyr7vh"]
+
+[ext_resource type="Script" uid="uid://bb23l1e1nkavc" path="res://Scripts/MenuUI/default_button.gd" id="1_4awj7"]
+[ext_resource type="Shader" uid="uid://bgafuuqhi58ds" path="res://Assets/Shaders/slide.gdshader" id="1_hiow6"]
+[ext_resource type="Texture2D" uid="uid://dcbrg8hku7crg" path="res://Assets/Menus/button_rect.png" id="2_0cv34"]
+[ext_resource type="FontFile" uid="uid://b5amclhdpl0aw" path="res://Assets/DynaPuff-VariableFont_wdth,wght.ttf" id="3_0cv34"]
+[ext_resource type="Theme" uid="uid://he1ns65qvk6j" path="res://Assets/Themes/default_button.tres" id="3_4awj7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2mklb"]
+shader = ExtResource("1_hiow6")
+shader_parameter/progress = 1.0
+shader_parameter/reverse = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_4awj7"]
+font = ExtResource("3_0cv34")
+font_size = 80
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2mklb"]
+font = ExtResource("3_0cv34")
+font_size = 80
+font_color = Color(0, 0, 0, 1)
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+
+[node name="DefaultButton" type="Control" unique_id=14575621]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_4awj7")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=785157996]
+texture_filter = 1
+material = SubResource("ShaderMaterial_2mklb")
+layout_mode = 0
+offset_top = -27.0
+offset_right = 320.0
+offset_bottom = 128.0
+texture = ExtResource("2_0cv34")
+
+[node name="DefaultLabel" type="Label" parent="." unique_id=664618013]
+layout_mode = 0
+offset_left = 5.0
+offset_right = 323.0
+offset_bottom = 109.0
+text = "BUTTON"
+label_settings = SubResource("LabelSettings_4awj7")
+vertical_alignment = 1
+
+[node name="HoverLabel" type="Label" parent="." unique_id=579506890]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 6.0
+offset_right = 323.0
+offset_bottom = 106.0
+text = "BUTTON"
+label_settings = SubResource("LabelSettings_2mklb")
+
+[node name="Button" type="Button" parent="." unique_id=2017959542]
+layout_mode = 0
+offset_right = 318.0
+offset_bottom = 97.0
+theme = ExtResource("3_4awj7")
+
+[node name="Hover" type="AudioStreamPlayer" parent="." unique_id=1442204369]
+
+[node name="Pressed" type="AudioStreamPlayer" parent="." unique_id=846415362]

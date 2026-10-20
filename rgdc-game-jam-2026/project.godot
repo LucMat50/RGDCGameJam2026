@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="RGDCGameJam2026"
-run/main_scene="uid://c0tgn36lh2ucn"
+run/main_scene="uid://wegyk8vx3let"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*uid://bi0tb0ifxi8r7"
 GameEvents="*uid://borm5lexw2ue4"
+Transition="*uid://cbgr5k0yra43n"
 
 [display]
 

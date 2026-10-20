@@ -8,9 +8,13 @@ var firecracker_points: int = 0
 var candy_inventory: Array = []
 var firecracker_inventory: Array = []
 
+# AUDIO STREAM PLAYER
+var bag_sound = AudioStreamPlayer.new()
+
 # READY
 func _ready() -> void:
 	GameEvents.boom.connect(_on_boom)
+	bag_sound.stream = load("res://Sound/drop.mp3")
 
 # ON INPUT EVENT
 #	calls drop if mouse not pressed

@@ -1,6 +1,67 @@
 [gd_scene format=3 uid="uid://cjnfxqeaemero"]
 
+[ext_resource type="Texture2D" uid="uid://cmww6ko4jdd8h" path="res://Assets/Menus/Title.png" id="1_2ro5p"]
 [ext_resource type="Theme" uid="uid://he1ns65qvk6j" path="res://Assets/Themes/default_button.tres" id="1_4v0bv"]
+
+[sub_resource type="Animation" id="Animation_f2o8f"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.17627825]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_ltp7d"]
+resource_name = "default"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.17627825, 0.17627825]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0009999999, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.95, 0.95), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iclcp"]
+_data = {
+&"RESET": SubResource("Animation_f2o8f"),
+&"default": SubResource("Animation_ltp7d")
+}
 
 [node name="StartMenu" type="Control" unique_id=1307323728]
 layout_mode = 3
@@ -10,22 +71,42 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Title" type="Sprite2D" parent="." unique_id=870112745]
+position = Vector2(633.99994, 535.00006)
+rotation = -0.17627825
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_2ro5p")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Title" unique_id=1698833689]
+libraries/ = SubResource("AnimationLibrary_iclcp")
+autoplay = &"default"
+
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1423364402]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 190.0
+offset_top = -583.0
+offset_right = 675.0
+grow_vertical = 0
+theme_override_constants/separation = 50
+alignment = 1
 
 [node name="Play" type="Button" parent="VBoxContainer" unique_id=2116589906]
 layout_mode = 2
 theme = ExtResource("1_4v0bv")
 text = "PLAY"
+alignment = 0
 
 [node name="Stats" type="Button" parent="VBoxContainer" unique_id=305485478]
 layout_mode = 2
 theme = ExtResource("1_4v0bv")
 text = "STATS"
+alignment = 0
 
 [node name="Quit" type="Button" parent="VBoxContainer" unique_id=1109627052]
 layout_mode = 2
 theme = ExtResource("1_4v0bv")
 text = "QUIT GAME"
+alignment = 0

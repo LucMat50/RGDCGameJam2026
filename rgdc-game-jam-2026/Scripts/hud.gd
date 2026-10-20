@@ -54,7 +54,8 @@ func update_life():
 			if i > life_counter:
 				lives[i].set_dead()
 	else:
-		pass
+		GameManager.hurt = false
+		GameEvents.game_over.emit()
 
 # LOST LIFE
 #	calls lose life
@@ -62,8 +63,9 @@ func update_life():
 func _on_lost_life(stun: float):
 	print("LOST LIFE RECEIVED")
 	update_life()
-	GameManager.hurt = true
-	
-	await get_tree().create_timer(stun).timeout
-	
-	GameManager.hurt = false
+	if GameManager.lives >= 1:
+		GameManager.hurt = true
+		
+		await get_tree().create_timer(stun).timeout
+		
+		GameManager.hurt = false
