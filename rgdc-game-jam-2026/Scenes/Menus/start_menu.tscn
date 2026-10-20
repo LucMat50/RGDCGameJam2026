@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://cjnfxqeaemero"]
 
 [ext_resource type="Texture2D" uid="uid://cmww6ko4jdd8h" path="res://Assets/Menus/Title.png" id="1_2ro5p"]
-[ext_resource type="Theme" uid="uid://he1ns65qvk6j" path="res://Assets/Themes/default_button.tres" id="1_4v0bv"]
+[ext_resource type="Script" uid="uid://dq5lxyedl2xv8" path="res://Scripts/MenuUI/start_menu.gd" id="1_f2o8f"]
+[ext_resource type="PackedScene" uid="uid://k7upeosyr7vh" path="res://Scenes/Menus/default_button.tscn" id="3_ltp7d"]
 
 [sub_resource type="Animation" id="Animation_f2o8f"]
 tracks/0/type = "value"
@@ -70,6 +71,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_f2o8f")
 
 [node name="Title" type="Sprite2D" parent="." unique_id=870112745]
 position = Vector2(633.99994, 535.00006)
@@ -81,32 +83,30 @@ texture = ExtResource("1_2ro5p")
 libraries/ = SubResource("AnimationLibrary_iclcp")
 autoplay = &"default"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1423364402]
+[node name="ButtonContainer" type="VBoxContainer" parent="." unique_id=1423364402]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 190.0
-offset_top = -583.0
+offset_top = -816.0
 offset_right = 675.0
 grow_vertical = 0
-theme_override_constants/separation = 50
+theme_override_constants/separation = 150
 alignment = 1
 
-[node name="Play" type="Button" parent="VBoxContainer" unique_id=2116589906]
+[node name="Play" parent="ButtonContainer" unique_id=14575621 instance=ExtResource("3_ltp7d")]
 layout_mode = 2
-theme = ExtResource("1_4v0bv")
-text = "PLAY"
-alignment = 0
+button_text = "PLAY"
 
-[node name="Stats" type="Button" parent="VBoxContainer" unique_id=305485478]
+[node name="Stats" parent="ButtonContainer" unique_id=380052268 instance=ExtResource("3_ltp7d")]
 layout_mode = 2
-theme = ExtResource("1_4v0bv")
-text = "STATS"
-alignment = 0
+button_text = "STATS"
 
-[node name="Quit" type="Button" parent="VBoxContainer" unique_id=1109627052]
+[node name="Quit" parent="ButtonContainer" unique_id=1519553212 instance=ExtResource("3_ltp7d")]
 layout_mode = 2
-theme = ExtResource("1_4v0bv")
-text = "QUIT GAME"
-alignment = 0
+button_text = "QUIT"
+
+[connection signal="button_pressed" from="ButtonContainer/Play" to="." method="_on_play_button_pressed"]
+[connection signal="button_pressed" from="ButtonContainer/Stats" to="." method="_on_stats_button_pressed"]
+[connection signal="button_pressed" from="ButtonContainer/Quit" to="." method="_on_quit_button_pressed"]
