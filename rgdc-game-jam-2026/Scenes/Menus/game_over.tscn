@@ -2,31 +2,14 @@
 
 [ext_resource type="FontFile" uid="uid://b5amclhdpl0aw" path="res://Assets/DynaPuff-VariableFont_wdth,wght.ttf" id="1_b7003"]
 [ext_resource type="Script" uid="uid://dcfk7c1l3o023" path="res://Scripts/MenuUI/game_over.gd" id="1_frso8"]
-[ext_resource type="Theme" uid="uid://he1ns65qvk6j" path="res://Assets/Themes/default_button.tres" id="1_od6xv"]
-[ext_resource type="Script" uid="uid://eyhtqa350cnr" path="res://Scripts/MenuUI/button.gd" id="3_5b2x3"]
-[ext_resource type="Shader" uid="uid://bgafuuqhi58ds" path="res://Assets/Shaders/slide.gdshader" id="3_h1yjp"]
 [ext_resource type="Theme" uid="uid://0yse4qj80gyh" path="res://Assets/Themes/menu_label.tres" id="4_prjnw"]
+[ext_resource type="PackedScene" uid="uid://k7upeosyr7vh" path="res://Scenes/Menus/default_button.tscn" id="7_m4ckg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_frso8"]
 font = ExtResource("1_b7003")
 font_size = 200
 outline_size = 50
 outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5b2x3"]
-shader = ExtResource("3_h1yjp")
-shader_parameter/progress = 0.0
-shader_parameter/reverse = false
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_m4ckg"]
-shader = ExtResource("3_h1yjp")
-shader_parameter/progress = 0.0
-shader_parameter/reverse = true
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_c1sox"]
-shader = ExtResource("3_h1yjp")
-shader_parameter/progress = 0.0
-shader_parameter/reverse = true
 
 [node name="GameOver" type="Control" unique_id=1882706428]
 layout_mode = 3
@@ -54,8 +37,9 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 138.0
-offset_top = -972.0
-offset_right = 897.0
+offset_top = -1162.0
+offset_right = 966.0
+offset_bottom = -116.0
 grow_vertical = 0
 theme_override_constants/separation = 100
 alignment = 1
@@ -79,33 +63,21 @@ vertical_alignment = 1
 
 [node name="ButtonContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=465619680]
 layout_mode = 2
-theme_override_constants/separation = 50
+theme_override_constants/separation = 200
 alignment = 1
 
-[node name="Retry" type="Button" parent="VBoxContainer/ButtonContainer" unique_id=1721404375]
-material = SubResource("ShaderMaterial_5b2x3")
+[node name="Retry" parent="VBoxContainer/ButtonContainer" unique_id=14575621 instance=ExtResource("7_m4ckg")]
 layout_mode = 2
-theme = ExtResource("1_od6xv")
-text = "RETRY"
-alignment = 0
-script = ExtResource("3_5b2x3")
+button_text = "RETRY"
 
-[node name="Back" type="Button" parent="VBoxContainer/ButtonContainer" unique_id=1566713460]
-material = SubResource("ShaderMaterial_m4ckg")
+[node name="Back" parent="VBoxContainer/ButtonContainer" unique_id=583408689 instance=ExtResource("7_m4ckg")]
 layout_mode = 2
-theme = ExtResource("1_od6xv")
-text = "BACK TO MENU"
-alignment = 0
-script = ExtResource("3_5b2x3")
+button_text = "BACK TO MENU"
 
-[node name="Quit" type="Button" parent="VBoxContainer/ButtonContainer" unique_id=1408020867]
-material = SubResource("ShaderMaterial_c1sox")
+[node name="Quit" parent="VBoxContainer/ButtonContainer" unique_id=1614245103 instance=ExtResource("7_m4ckg")]
 layout_mode = 2
-theme = ExtResource("1_od6xv")
-text = "QUIT GAME"
-alignment = 0
-script = ExtResource("3_5b2x3")
+button_text = "QUIT GAME"
 
-[connection signal="pressed" from="VBoxContainer/ButtonContainer/Retry" to="." method="_on_retry_pressed"]
-[connection signal="pressed" from="VBoxContainer/ButtonContainer/Back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="VBoxContainer/ButtonContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="button_pressed" from="VBoxContainer/ButtonContainer/Retry" to="." method="_on_retry_button_pressed"]
+[connection signal="button_pressed" from="VBoxContainer/ButtonContainer/Back" to="." method="_on_back_button_pressed"]
+[connection signal="button_pressed" from="VBoxContainer/ButtonContainer/Quit" to="." method="_on_quit_button_pressed"]
