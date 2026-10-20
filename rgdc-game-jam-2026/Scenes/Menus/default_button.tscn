@@ -37,30 +37,34 @@ anchors_preset = 0
 script = ExtResource("1_4awj7")
 button_text = "BUTTON"
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=785157996]
+[node name="Background" type="NinePatchRect" parent="." unique_id=1187436937]
 texture_filter = 1
 material = SubResource("ShaderMaterial_2mklb")
 layout_mode = 0
-offset_top = -27.0
-offset_right = 233.0
-offset_bottom = 128.0
+offset_right = 215.0
+offset_bottom = 105.0
 texture = ExtResource("2_0cv34")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
 
-[node name="DefaultLabel" type="Label" parent="." unique_id=664618013]
+[node name="DefaultLabel" type="Label" parent="Background" unique_id=664618013]
 layout_mode = 0
-offset_left = 21.0
-offset_right = 339.0
-offset_bottom = 109.0
+offset_left = 15.0
+offset_top = 4.0
+offset_right = 230.0
+offset_bottom = 101.0
 text = "TEST"
 label_settings = SubResource("LabelSettings_4awj7")
 vertical_alignment = 1
 
-[node name="HoverLabel" type="Label" parent="." unique_id=579506890]
+[node name="HoverLabel" type="Label" parent="Background" unique_id=579506890]
 layout_mode = 0
-offset_left = 21.0
-offset_top = 6.0
-offset_right = 339.0
-offset_bottom = 106.0
+offset_left = 15.0
+offset_top = 4.0
+offset_right = 230.0
+offset_bottom = 101.0
 text = "TEST"
 label_settings = SubResource("LabelSettings_2mklb")
 
