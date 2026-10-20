@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cmww6ko4jdd8h" path="res://Assets/Menus/Title.png" id="1_2ro5p"]
 [ext_resource type="Script" uid="uid://dq5lxyedl2xv8" path="res://Scripts/MenuUI/start_menu.gd" id="1_f2o8f"]
 [ext_resource type="PackedScene" uid="uid://k7upeosyr7vh" path="res://Scenes/Menus/default_button.tscn" id="3_ltp7d"]
+[ext_resource type="PackedScene" uid="uid://7lwoaiswack3" path="res://Scenes/custom_cursor.tscn" id="4_ltp7d"]
 
 [sub_resource type="Animation" id="Animation_f2o8f"]
 tracks/0/type = "value"
@@ -106,6 +107,10 @@ button_text = "STATS"
 [node name="Quit" parent="ButtonContainer" unique_id=1519553212 instance=ExtResource("3_ltp7d")]
 layout_mode = 2
 button_text = "QUIT"
+
+[node name="Cursor" type="CanvasLayer" parent="." unique_id=108402776]
+
+[node name="CustomCursor" parent="Cursor" unique_id=1050464833 instance=ExtResource("4_ltp7d")]
 
 [connection signal="button_pressed" from="ButtonContainer/Play" to="." method="_on_play_button_pressed"]
 [connection signal="button_pressed" from="ButtonContainer/Stats" to="." method="_on_stats_button_pressed"]

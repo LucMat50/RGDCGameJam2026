@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cbgr5k0yra43n"]
 
 [ext_resource type="Shader" uid="uid://diyxlii5uledy" path="res://Assets/Shaders/fade.gdshader" id="1_jnsx0"]
-[ext_resource type="Script" uid="uid://bywax7x3b78k7" path="res://Scripts/transition.gd" id="1_vlteq"]
+[ext_resource type="Script" uid="uid://bywax7x3b78k7" path="res://Scripts/MenuUI/transition.gd" id="1_vlteq"]
 [ext_resource type="Shader" uid="uid://bgafuuqhi58ds" path="res://Assets/Shaders/slide.gdshader" id="2_ah04o"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ah04o"]
@@ -220,20 +220,12 @@ _data = {
 &"slide_out": SubResource("Animation_nshyj")
 }
 
-[node name="Transition" type="Control" unique_id=693186040]
-z_index = 2
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
+[node name="Transition" type="CanvasLayer" unique_id=551214437]
+layer = 2
 script = ExtResource("1_vlteq")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1604077676]
 material = SubResource("ShaderMaterial_ah04o")
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

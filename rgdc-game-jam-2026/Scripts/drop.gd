@@ -4,10 +4,6 @@ extends Area2D
 var candy_tax: int = 0
 var firecracker_points: int = 0
 
-# ARRAY VARIABLES
-var candy_inventory: Array = []
-var firecracker_inventory: Array = []
-
 # AUDIO STREAM PLAYER
 var bag_sound = AudioStreamPlayer.new()
 
@@ -31,13 +27,11 @@ func drop():
 		if body.is_in_group("Candy"):
 			GameManager.candy_points += 1
 			print("Candy: " + str(GameManager.candy_points))
-			candy_inventory.append(body)
 			body.queue_free()
 			
 		elif body.is_in_group("Firecracker"):
 			firecracker_points += 1
 			GameManager.candy_points -= candy_tax
-			firecracker_inventory.append(body)
 			print("Firecracker: " + str(firecracker_points))
 			print("Candy: " + str(GameManager.candy_points))
 			body.detonation()

@@ -1,6 +1,7 @@
 extends Control
 
 func _on_play_button_pressed() -> void:
+	GameEvents.reset.emit()
 	Transition.change_scene("res://Scenes/main_game.tscn", "slide", Color(1,1,1))
 
 func _on_stats_button_pressed() -> void:

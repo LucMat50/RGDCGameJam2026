@@ -42,6 +42,7 @@ func _process(_delta: float) -> void:
 	while spawn_time_max > spawn_time_min:
 		if seconds % 30 == 0:
 			spawn_time_max -= 1
+			set_spawn_time()
 
 # SPAWN CANDY / FIRECRACKER
 #	calls spawn_candy or spawn_firecracker

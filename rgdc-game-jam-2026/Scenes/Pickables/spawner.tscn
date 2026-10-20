@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c0pmlq1afn5cw"]
 
-[ext_resource type="Script" uid="uid://jtilxpv841oh" path="res://Scripts/spawner.gd" id="1_67c4q"]
+[ext_resource type="Script" uid="uid://jtilxpv841oh" path="res://Scripts/Pickables/spawner.gd" id="1_67c4q"]
 [ext_resource type="PackedScene" uid="uid://mfg1ipq2alea" path="res://Scenes/Pickables/candy.tscn" id="2_aum6o"]
 [ext_resource type="PackedScene" uid="uid://b6dmhu1ho1stk" path="res://Scenes/Pickables/Firecracker/abejita.tscn" id="3_hpg5u"]
 [ext_resource type="PackedScene" uid="uid://jan1t2pv30u5" path="res://Scenes/Pickables/Firecracker/cara_de_diablo.tscn" id="4_uuykj"]

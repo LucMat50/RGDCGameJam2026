@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 @onready var transition_type = $ColorRect/AnimationPlayer
 @onready var transition_canvas = $ColorRect
