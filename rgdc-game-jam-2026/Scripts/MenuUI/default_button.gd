@@ -88,4 +88,5 @@ func exit_hover():
 # ON BUTTON PRESSED
 #	emit signal button_pressed
 func on_button_pressed():
+	$Pressed.play()
 	button_pressed.emit()

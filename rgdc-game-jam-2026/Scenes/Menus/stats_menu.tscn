@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://bo5emloq5xt7d"]
+
+[ext_resource type="Script" uid="uid://isai580hiht3" path="res://Scripts/MenuUI/stats_menu.gd" id="1_c7seh"]
+[ext_resource type="Theme" uid="uid://c416nhovp1bd6" path="res://Assets/Themes/menu_title_label.tres" id="1_p04hj"]
+[ext_resource type="PackedScene" uid="uid://k7upeosyr7vh" path="res://Scenes/Menus/default_button.tscn" id="2_d4bva"]
+[ext_resource type="Theme" uid="uid://0yse4qj80gyh" path="res://Assets/Themes/menu_label.tres" id="3_a4v23"]
+
+[node name="stats_menu" type="Control" unique_id=1423281939]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c7seh")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1122113124]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.7058824, 0.8117647, 1)
+
+[node name="Title" type="Label" parent="." unique_id=359287421]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 280.0
+grow_horizontal = 2
+theme = ExtResource("1_p04hj")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0.3019608, 0.40784314, 1)
+theme_override_constants/outline_size = 40
+text = "STATS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatsContainer" type="VBoxContainer" parent="." unique_id=1017031875]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 186.0
+offset_top = -405.0
+offset_right = 1258.0
+offset_bottom = 46.0
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Candy" type="Label" parent="StatsContainer" unique_id=1387719996]
+layout_mode = 2
+theme = ExtResource("3_a4v23")
+text = "MOST CANDY COLLECTED: "
+
+[node name="Time" type="Label" parent="StatsContainer" unique_id=600102472]
+layout_mode = 2
+theme = ExtResource("3_a4v23")
+text = "BEST TIME: "
+
+[node name="Back" parent="." unique_id=14575621 instance=ExtResource("2_d4bva")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 188.0
+offset_top = -210.0
+offset_right = 188.0
+offset_bottom = -210.0
+grow_vertical = 0
+button_text = "BACK"
+
+[connection signal="button_pressed" from="Back" to="." method="_on_back_button_pressed"]

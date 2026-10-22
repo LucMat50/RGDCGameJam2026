@@ -1,11 +1,7 @@
 [gd_scene format=3 uid="uid://vlr0aecw5mm5"]
 
-[ext_resource type="FontFile" uid="uid://b5amclhdpl0aw" path="res://Assets/DynaPuff-VariableFont_wdth,wght.ttf" id="1_1j166"]
 [ext_resource type="PackedScene" uid="uid://k7upeosyr7vh" path="res://Scenes/Menus/default_button.tscn" id="2_1j166"]
-
-[sub_resource type="Theme" id="Theme_yeo1y"]
-default_font = ExtResource("1_1j166")
-default_font_size = 200
+[ext_resource type="Theme" uid="uid://c416nhovp1bd6" path="res://Assets/Themes/menu_title_label.tres" id="2_tf3q2"]
 
 [node name="PauseMenu" type="Control" unique_id=1742897843]
 layout_mode = 3
@@ -22,22 +18,25 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -294.5
-offset_top = -271.5
-offset_right = 294.5
-offset_bottom = 271.5
+offset_left = -383.0
+offset_top = -411.0
+offset_right = 343.0
+offset_bottom = 568.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 50
+theme_override_constants/separation = 200
 
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=1848623765]
+[node name="Title" type="Label" parent="VBoxContainer" unique_id=1848623765]
 layout_mode = 2
-theme = SubResource("Theme_yeo1y")
+theme = ExtResource("2_tf3q2")
+theme_override_colors/font_outline_color = Color(1, 0.3019608, 0.40784314, 1)
+theme_override_constants/outline_size = 40
 text = "PAUSE"
 
 [node name="ButtonContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=1158479928]
 layout_mode = 2
 theme_override_constants/separation = 150
+alignment = 1
 
 [node name="Resume" parent="VBoxContainer/ButtonContainer" unique_id=14575621 instance=ExtResource("2_1j166")]
 layout_mode = 2
@@ -45,6 +44,7 @@ button_text = "RESUME"
 
 [node name="Back" parent="VBoxContainer/ButtonContainer" unique_id=852517869 instance=ExtResource("2_1j166")]
 layout_mode = 2
+button_text = "BACK TO MENU"
 
 [node name="Quit" parent="VBoxContainer/ButtonContainer" unique_id=1447678268 instance=ExtResource("2_1j166")]
 layout_mode = 2

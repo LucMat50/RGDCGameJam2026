@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://c416nhovp1bd6"]
+
+[ext_resource type="FontFile" uid="uid://b5amclhdpl0aw" path="res://Assets/DynaPuff-VariableFont_wdth,wght.ttf" id="1_wl73c"]
+
+[resource]
+default_font = ExtResource("1_wl73c")
+default_font_size = 233

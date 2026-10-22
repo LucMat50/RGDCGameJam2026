@@ -4,6 +4,10 @@
 [ext_resource type="Script" uid="uid://dq5lxyedl2xv8" path="res://Scripts/MenuUI/start_menu.gd" id="1_f2o8f"]
 [ext_resource type="PackedScene" uid="uid://k7upeosyr7vh" path="res://Scenes/Menus/default_button.tscn" id="3_ltp7d"]
 [ext_resource type="PackedScene" uid="uid://7lwoaiswack3" path="res://Scenes/custom_cursor.tscn" id="4_ltp7d"]
+[ext_resource type="Texture2D" uid="uid://b6l4iyn41ghiv" path="res://Assets/Menus/Goobers.png" id="5_iclcp"]
+[ext_resource type="Texture2D" uid="uid://dcbrg8hku7crg" path="res://Assets/Menus/button_rect.png" id="5_xnmma"]
+[ext_resource type="Texture2D" uid="uid://bersgavb2syo6" path="res://Assets/Menus/pinata.png" id="6_kj465"]
+[ext_resource type="AudioStream" uid="uid://dem5jg7kumn4e" path="res://Sound/DaleDaleDale.MP3" id="8_083qg"]
 
 [sub_resource type="Animation" id="Animation_f2o8f"]
 tracks/0/type = "value"
@@ -65,6 +69,89 @@ _data = {
 &"default": SubResource("Animation_ltp7d")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_kj465"]
+atlas = ExtResource("5_iclcp")
+region = Rect2(0, 0, 574, 325)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnmma"]
+atlas = ExtResource("5_iclcp")
+region = Rect2(574, 0, 574, 325)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_083qg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kj465")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnmma")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_083qg"]
+atlas = ExtResource("6_kj465")
+region = Rect2(0, 0, 539, 578)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qoau"]
+atlas = ExtResource("6_kj465")
+region = Rect2(539, 0, 539, 578)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_epptk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_083qg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7qoau")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_xnmma"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1387, 576)]
+}
+
+[sub_resource type="Animation" id="Animation_083qg"]
+resource_name = "up_down"
+length = 1.2000201
+loop_mode = 2
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.20002, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1387, 570), Vector2(1387, 580), Vector2(1387, 520), Vector2(1387, 530)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7qoau"]
+_data = {
+&"RESET": SubResource("Animation_xnmma"),
+&"up_down": SubResource("Animation_083qg")
+}
+
 [node name="StartMenu" type="Control" unique_id=1307323728]
 layout_mode = 3
 anchors_preset = 15
@@ -74,8 +161,18 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f2o8f")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=540080573]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(7.2196126e-06, 0.7062663, 0.8099009, 1)
+metadata/_edit_lock_ = true
+
 [node name="Title" type="Sprite2D" parent="." unique_id=870112745]
-position = Vector2(633.99994, 535.00006)
+position = Vector2(589.99994, 535)
 rotation = -0.17627825
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_2ro5p")
@@ -111,6 +208,34 @@ button_text = "QUIT"
 [node name="Cursor" type="CanvasLayer" parent="." unique_id=108402776]
 
 [node name="CustomCursor" parent="Cursor" unique_id=1050464833 instance=ExtResource("4_ltp7d")]
+
+[node name="Cuerda" type="Sprite2D" parent="." unique_id=709505640]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(1476.5, 315.5)
+scale = Vector2(0.23437475, 10.359376)
+texture = ExtResource("5_xnmma")
+
+[node name="Goobers" type="AnimatedSprite2D" parent="." unique_id=310242007]
+position = Vector2(1403, 1232)
+scale = Vector2(1.7, 1.7)
+sprite_frames = SubResource("SpriteFrames_083qg")
+autoplay = "default"
+frame_progress = 0.39773664
+
+[node name="Burrito" type="AnimatedSprite2D" parent="." unique_id=1412570708]
+position = Vector2(1387, 576)
+sprite_frames = SubResource("SpriteFrames_epptk")
+autoplay = "default"
+frame_progress = 0.20275891
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Burrito" unique_id=1519249463]
+libraries/ = SubResource("AnimationLibrary_7qoau")
+autoplay = &"up_down"
+
+[node name="DaleDaleDale" type="AudioStreamPlayer" parent="." unique_id=135691722]
+stream = ExtResource("8_083qg")
+autoplay = true
+parameters/looping = true
 
 [connection signal="button_pressed" from="ButtonContainer/Play" to="." method="_on_play_button_pressed"]
 [connection signal="button_pressed" from="ButtonContainer/Stats" to="." method="_on_stats_button_pressed"]

@@ -16,14 +16,14 @@ shader_parameter/reverse = false
 font = ExtResource("3_0cv34")
 font_size = 80
 outline_size = 20
-outline_color = Color(0, 0, 0, 1)
+outline_color = Color(1, 0.30037236, 0.40978795, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_2mklb"]
 font = ExtResource("3_0cv34")
 font_size = 80
-font_color = Color(0, 0, 0, 1)
+font_color = Color(1, 0.3019608, 0.40784314, 1)
 outline_size = 20
-outline_color = Color(0, 0, 0, 1)
+outline_color = Color(1, 0.3019608, 0.40784314, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4awj7"]
 
@@ -60,6 +60,7 @@ label_settings = SubResource("LabelSettings_4awj7")
 vertical_alignment = 1
 
 [node name="HoverLabel" type="Label" parent="Background" unique_id=579506890]
+visible = false
 layout_mode = 0
 offset_left = 15.0
 offset_top = 4.0
@@ -80,3 +81,5 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_yyxf2")
 stream = ExtResource("6_2mklb")
 
 [node name="Pressed" type="AudioStreamPlayer" parent="." unique_id=846415362]
+stream = ExtResource("6_2mklb")
+pitch_scale = 0.5

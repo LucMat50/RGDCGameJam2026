@@ -35,8 +35,7 @@ func _ready() -> void:
 	set_spawn_time()
 	spawn_timer.start(spawn_time)
 	spawn_timer.timeout.connect(spawn_candy_firecracker)
-
-func _process(_delta: float) -> void:
+	
 	var seconds := int(GameManager.current_time) % 60
 	
 	while spawn_time_max > spawn_time_min:

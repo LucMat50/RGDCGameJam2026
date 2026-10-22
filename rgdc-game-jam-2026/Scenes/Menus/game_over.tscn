@@ -1,15 +1,32 @@
 [gd_scene format=3 uid="uid://wegyk8vx3let"]
 
-[ext_resource type="FontFile" uid="uid://b5amclhdpl0aw" path="res://Assets/DynaPuff-VariableFont_wdth,wght.ttf" id="1_b7003"]
 [ext_resource type="Script" uid="uid://dcfk7c1l3o023" path="res://Scripts/MenuUI/game_over.gd" id="1_frso8"]
+[ext_resource type="Theme" uid="uid://c416nhovp1bd6" path="res://Assets/Themes/menu_title_label.tres" id="2_prjnw"]
 [ext_resource type="Theme" uid="uid://0yse4qj80gyh" path="res://Assets/Themes/menu_label.tres" id="4_prjnw"]
+[ext_resource type="Texture2D" uid="uid://bm5iw7gon180e" path="res://Assets/Menus/torturedGoober.png" id="5_h1yjp"]
 [ext_resource type="PackedScene" uid="uid://k7upeosyr7vh" path="res://Scenes/Menus/default_button.tscn" id="7_m4ckg"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_frso8"]
-font = ExtResource("1_b7003")
-font_size = 200
-outline_size = 50
-outline_color = Color(0, 0, 0, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_5b2x3"]
+atlas = ExtResource("5_h1yjp")
+region = Rect2(0, 0, 517, 625)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4ckg"]
+atlas = ExtResource("5_h1yjp")
+region = Rect2(517, 0, 517, 625)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c1sox"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5b2x3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4ckg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="GameOver" type="Control" unique_id=1882706428]
 layout_mode = 3
@@ -20,14 +37,26 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_frso8")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=534509476]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.7058824, 0.8117647, 1)
+
 [node name="Title" type="Label" parent="." unique_id=787603095]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 331.0
 grow_horizontal = 2
+theme = ExtResource("2_prjnw")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0.3019608, 0.40784314, 1)
+theme_override_constants/outline_size = 40
 text = "GAME OVER"
-label_settings = SubResource("LabelSettings_frso8")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -41,7 +70,7 @@ offset_top = -1162.0
 offset_right = 966.0
 offset_bottom = -116.0
 grow_vertical = 0
-theme_override_constants/separation = 100
+theme_override_constants/separation = 200
 alignment = 1
 
 [node name="StatsContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=591971710]
@@ -77,6 +106,13 @@ button_text = "BACK TO MENU"
 [node name="Quit" parent="VBoxContainer/ButtonContainer" unique_id=1614245103 instance=ExtResource("7_m4ckg")]
 layout_mode = 2
 button_text = "QUIT GAME"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1559286627]
+position = Vector2(1384.9999, 1001)
+scale = Vector2(1.7, 1.7)
+sprite_frames = SubResource("SpriteFrames_c1sox")
+autoplay = "default"
+frame_progress = 0.8159444
 
 [connection signal="button_pressed" from="VBoxContainer/ButtonContainer/Retry" to="." method="_on_retry_button_pressed"]
 [connection signal="button_pressed" from="VBoxContainer/ButtonContainer/Back" to="." method="_on_back_button_pressed"]

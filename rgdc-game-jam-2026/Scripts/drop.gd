@@ -4,12 +4,18 @@ extends Area2D
 var candy_tax: int = 0
 var firecracker_points: int = 0
 
+# TWEEN
+var tween: Tween
+
 # AUDIO STREAM PLAYER
 var bag_sound = AudioStreamPlayer.new()
 
 # READY
 func _ready() -> void:
 	GameEvents.boom.connect(_on_boom)
+	mouse_entered.connect(on_hover)
+	mouse_exited.connect(exit_hover)
+	
 	bag_sound.stream = load("res://Sound/drop.mp3")
 
 # ON INPUT EVENT
@@ -41,3 +47,20 @@ func drop():
 func _on_boom(_danger: int, tax: int):
 	print("BOOM RECEIVED")
 	candy_tax = tax
+
+# ON HOVER
+#	makes sprite bigger when hovering
+func on_hover():
+	bag_sound.play()
+	if tween:
+		tween.kill()
+	tween = create_tween()
+	tween.tween_property($AnimatedSprite2D, "scale", Vector2(1.02, 1.02), 0.2)
+
+# EXIT HOVER
+#	returns to normal size after hover
+func exit_hover():
+	if tween:
+		tween.kill()
+	tween = create_tween()
+	tween.tween_property($AnimatedSprite2D, "scale", Vector2(1.0, 1.0), 0.2)
