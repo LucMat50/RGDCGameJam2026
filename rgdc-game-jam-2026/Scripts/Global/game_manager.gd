@@ -29,6 +29,7 @@ func _ready() -> void:
 	lives = 5
 	ear_ringing.stream = load("res://Sound/UI/ear_ringing.mp3")
 	add_child(ear_ringing)
+	loadScore()
 	GameEvents.game_over.connect(on_game_over)
 	GameEvents.reset.connect(on_reset)
 
@@ -79,10 +80,14 @@ func updateScore():
 	if (candy_points > best_points):
 		best_points = candy_points
 		best_time = best_time
+		saveScore()
+		print("NEW SCORE SAVED")
 		
 	if (current_time > best_time):
 		best_points = best_points
 		best_time = current_time
+		saveScore()
+		print("NEW SCORE SAVED")
 	
-	saveScore()
-	print("NEW SCORE SAVED")
+	else:
+		pass

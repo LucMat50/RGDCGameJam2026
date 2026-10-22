@@ -17,6 +17,7 @@ func _ready() -> void:
 	mouse_exited.connect(exit_hover)
 	
 	bag_sound.stream = load("res://Sound/drop.mp3")
+	GameManager.add_child(bag_sound)
 
 # ON INPUT EVENT
 #	calls drop if mouse not pressed
@@ -30,6 +31,7 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 #	deletes candy/firecracker
 func drop():
 	for body in get_overlapping_bodies():
+		bag_sound.play()
 		if body.is_in_group("Candy"):
 			GameManager.candy_points += 1
 			print("Candy: " + str(GameManager.candy_points))
@@ -51,7 +53,6 @@ func _on_boom(_danger: int, tax: int):
 # ON HOVER
 #	makes sprite bigger when hovering
 func on_hover():
-	bag_sound.play()
 	if tween:
 		tween.kill()
 	tween = create_tween()

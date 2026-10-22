@@ -72,10 +72,11 @@ func detonation():
 	
 	if get_parent().is_held or last_position.y > screen_size.y:
 		print("SIGNAL LOST LIFE EMITTED")
+		get_parent().is_held = false
+		GameManager.hold = false
 		GameManager.candy_points -= candy_tax
 		GameEvents.lost_life.emit(stun_time)
 
-	
 	boom_sound.play()
 	explosion_particles()
 	queue_free()

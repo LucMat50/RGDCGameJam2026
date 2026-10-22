@@ -6,6 +6,9 @@ var life_counter: int = 4
 # FLOAT VARIABLES
 var time_elapsed: float = 0
 
+# AUDIO STREAM VARIABLE
+var caramba = AudioStreamPlayer.new()
+
 # ONREADY VARIABLES
 #	counter and time taken
 @onready var candy_label = $GameStats/CandyCounter
@@ -23,6 +26,9 @@ var time_elapsed: float = 0
 #	sets lives 
 # 	connects lost life signal to lost life function
 func _ready() -> void:
+	caramba.stream = load("res://Sound/caramba.MP3")
+	GameManager.add_child(caramba)
+	
 	lives = [life1, life2, life3, life4, life5]
 	GameEvents.lost_life.connect(_on_lost_life)
 
@@ -49,6 +55,7 @@ func update_life():
 	print("LIFE COUNTER: " + str(life_counter))
 	
 	if GameManager.lives > 0:
+		caramba.play()
 		for i in lives.size():
 			lives[i].set_alive()
 			if i > life_counter:
