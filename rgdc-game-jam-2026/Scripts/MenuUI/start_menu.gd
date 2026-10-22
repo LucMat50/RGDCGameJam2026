@@ -20,6 +20,7 @@ func _on_stats_button_pressed() -> void:
 # ON QUIT BUTTON PRESSED
 #	quits game
 func _on_quit_button_pressed() -> void:
+	fade_out()
 	get_tree().quit()
 
 # FADE OUT

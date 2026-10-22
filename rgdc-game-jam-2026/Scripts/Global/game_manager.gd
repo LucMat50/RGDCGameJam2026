@@ -27,6 +27,8 @@ const SAVEFILE = "user://savefile.save"
 func _ready() -> void:
 	candy_points = 0
 	lives = 5
+	ear_ringing.stream = load("res://Sound/UI/ear_ringing.mp3")
+	add_child(ear_ringing)
 	GameEvents.game_over.connect(on_game_over)
 	GameEvents.reset.connect(on_reset)
 
@@ -40,6 +42,7 @@ func _process(_delta: float) -> void:
 # ON GAME OVER
 #	change scene to game over on signal game over
 func on_game_over():
+	ear_ringing.play()
 	Transition.change_scene("res://Scenes/Menus/game_over.tscn", "fade", Color(1,1,1))
 
 # ON RESET
@@ -76,9 +79,10 @@ func updateScore():
 	if (candy_points > best_points):
 		best_points = candy_points
 		best_time = best_time
-		saveScore()
 		
 	if (current_time > best_time):
 		best_points = best_points
 		best_time = current_time
-		saveScore()
+	
+	saveScore()
+	print("NEW SCORE SAVED")

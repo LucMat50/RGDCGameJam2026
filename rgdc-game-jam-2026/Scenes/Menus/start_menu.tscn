@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b6l4iyn41ghiv" path="res://Assets/Menus/Goobers.png" id="5_iclcp"]
 [ext_resource type="Texture2D" uid="uid://dcbrg8hku7crg" path="res://Assets/Menus/button_rect.png" id="5_xnmma"]
 [ext_resource type="Texture2D" uid="uid://bersgavb2syo6" path="res://Assets/Menus/pinata.png" id="6_kj465"]
-[ext_resource type="AudioStream" uid="uid://dem5jg7kumn4e" path="res://Sound/DaleDaleDale.MP3" id="8_083qg"]
+[ext_resource type="AudioStream" uid="uid://dem5jg7kumn4e" path="res://Sound/UI/DaleDaleDale.MP3" id="8_083qg"]
 
 [sub_resource type="Animation" id="Animation_f2o8f"]
 tracks/0/type = "value"
@@ -220,13 +220,13 @@ position = Vector2(1403, 1232)
 scale = Vector2(1.7, 1.7)
 sprite_frames = SubResource("SpriteFrames_083qg")
 autoplay = "default"
-frame_progress = 0.39773664
+frame_progress = 0.25318974
 
 [node name="Burrito" type="AnimatedSprite2D" parent="." unique_id=1412570708]
 position = Vector2(1387, 576)
 sprite_frames = SubResource("SpriteFrames_epptk")
 autoplay = "default"
-frame_progress = 0.20275891
+frame_progress = 0.058210876
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Burrito" unique_id=1519249463]
 libraries/ = SubResource("AnimationLibrary_7qoau")

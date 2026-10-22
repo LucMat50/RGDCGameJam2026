@@ -6,6 +6,7 @@ var tween: Tween
 @onready var time_label = $VBoxContainer/StatsContainer/Time
 
 func _ready() -> void:
+	GameManager.updateScore()
 	var minutes := int(GameManager.current_time) / 60
 	var seconds := int(GameManager.current_time) % 60
 	var msec := int(fmod(GameManager.current_time, 1.0) * 100)

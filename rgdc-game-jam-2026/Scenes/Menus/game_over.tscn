@@ -107,12 +107,12 @@ button_text = "BACK TO MENU"
 layout_mode = 2
 button_text = "QUIT GAME"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1559286627]
+[node name="TorturedGoober" type="AnimatedSprite2D" parent="." unique_id=1559286627]
 position = Vector2(1384.9999, 1001)
 scale = Vector2(1.7, 1.7)
 sprite_frames = SubResource("SpriteFrames_c1sox")
 autoplay = "default"
-frame_progress = 0.8159444
+frame_progress = 0.87002456
 
 [connection signal="button_pressed" from="VBoxContainer/ButtonContainer/Retry" to="." method="_on_retry_button_pressed"]
 [connection signal="button_pressed" from="VBoxContainer/ButtonContainer/Back" to="." method="_on_back_button_pressed"]
