@@ -15,4 +15,4 @@ func _ready() -> void:
 	time_label.text = "MOST TIME SURVIVED: %02d:%02d:%02d" % [minutes, seconds, msec]
 
 func _on_back_button_pressed() -> void:
-	Transition.change_scene("res://Scenes/Menus/start_menu.tscn", "slide", Color(1,1,1))
+	Transition.change_scene("res://Scenes/Menus/start_menu.tscn", "slide", Color(1.0, 0.302, 0.408, 1.0))

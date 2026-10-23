@@ -23,13 +23,13 @@ func _ready() -> void:
 #	changes to the main game
 func _on_retry_button_pressed() -> void:
 	GameEvents.reset.emit()
-	Transition.change_scene("res://Scenes/main_game.tscn", "slide", Color(1,1,1))
+	Transition.change_scene("res://Scenes/main_game.tscn", "slide", Color(1.0, 0.302, 0.408, 1.0))
 
 # ON BACK BUTTON PRESSED
 #	changes to the start menu
 func _on_back_button_pressed() -> void:
 	GameEvents.reset.emit()
-	Transition.change_scene("res://Scenes/Menus/start_menu.tscn", "slide", Color(1,1,1))
+	Transition.change_scene("res://Scenes/Menus/start_menu.tscn", "slide", Color(1.0, 0.302, 0.408, 1.0))
 
 # ON QUIT BUTTON PRESSED
 #	quits the game

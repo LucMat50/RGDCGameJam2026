@@ -9,13 +9,13 @@ extends Control
 func _on_play_button_pressed() -> void:
 	GameEvents.reset.emit()
 	fade_out()
-	Transition.change_scene("res://Scenes/main_game.tscn", "slide", Color(1,1,1))
+	Transition.change_scene("res://Scenes/main_game.tscn", "slide", Color(1.0, 0.302, 0.408, 1.0))
 
 # ON STATS BUTTON PRESSED
 #	change scene to the stats menu
 func _on_stats_button_pressed() -> void:
 	fade_out()
-	Transition.change_scene("res://Scenes/Menus/stats_menu.tscn", "slide", Color(1,1,1))
+	Transition.change_scene("res://Scenes/Menus/stats_menu.tscn", "slide", Color(1.0, 0.302, 0.408, 1.0))
 
 # ON QUIT BUTTON PRESSED
 #	quits game

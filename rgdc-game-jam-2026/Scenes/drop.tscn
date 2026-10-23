@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://k8gxoiihtfr5"]
 
-[ext_resource type="Script" uid="uid://d10ymbdfyxykq" path="res://Scripts/drop.gd" id="1_lbfjw"]
+[ext_resource type="Script" uid="uid://d10ymbdfyxykq" path="res://Scripts/Pickables/drop.gd" id="1_lbfjw"]
 [ext_resource type="Texture2D" uid="uid://btd6ele0xmv4n" path="res://Assets/Bag/bag.png" id="2_pcs5o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r0ybf"]
