@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b2hl33xlpxldv" path="res://Scenes/HUD/hud.tscn" id="4_6j5ir"]
 [ext_resource type="Texture2D" uid="uid://d4lx37mwkd41g" path="res://Assets/Background/Background.png" id="5_mgc0q"]
 [ext_resource type="PackedScene" uid="uid://vlr0aecw5mm5" path="res://Scenes/Menus/pause_menu.tscn" id="6_bb2iq"]
+[ext_resource type="AudioStream" uid="uid://dwiixkl60magm" path="res://Sound/dulces_y_cohetes.wav" id="8_6y7pd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bb2iq"]
 atlas = ExtResource("5_mgc0q")
@@ -92,3 +93,9 @@ firecracker_container = NodePath("../../Firecracker")
 
 [node name="PauseMenu" parent="." unique_id=1742897843 instance=ExtResource("6_bb2iq")]
 visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1264183434]
+process_mode = 3
+stream = ExtResource("8_6y7pd")
+volume_db = -80.0
+autoplay = true

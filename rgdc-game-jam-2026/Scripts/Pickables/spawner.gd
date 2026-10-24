@@ -16,7 +16,7 @@ var random_firecracker: int
 var random_scene: int
 var current_wave: int = 1
 var spawn_time_max: int = 9
-var spawn_time_min: int = 4
+var spawn_time_min: int = 3
 
 # FLOAT VARIABLES
 var spawn_time: float
@@ -28,6 +28,7 @@ var chaos_spawning: bool = false
 
 # ONREADY VARIABLES
 @onready var spawn_timer: Timer = $Timer
+@onready var decrease_spawn_timer: Timer = $SpawnDecrease
 
 # READY
 #	spawns candy or firecracker
@@ -36,12 +37,8 @@ func _ready() -> void:
 	spawn_timer.start(spawn_time)
 	spawn_timer.timeout.connect(spawn_candy_firecracker)
 	
-	var seconds := int(GameManager.current_time) % 60
-	
-	while spawn_time_max > spawn_time_min:
-		if seconds % 30 == 0:
-			spawn_time_max -= 1
-			set_spawn_time()
+	decrease_spawn_timer.start(30)
+	decrease_spawn_timer.timeout.connect(update_spawn_time)
 
 # SPAWN CANDY / FIRECRACKER
 #	calls spawn_candy or spawn_firecracker
@@ -74,8 +71,14 @@ func spawn_firecracker():
 # SET SPAWN TIME
 #	throughout wave
 func set_spawn_time():
-	print("SPAWN TIME MAX: " + str(spawn_time_max))
-	spawn_time = randf_range(3,spawn_time_max)
+	spawn_time = randf_range(2,spawn_time_max)
+
+# UPDATE SPAWN TIME
+#	update max spawn time
+func update_spawn_time():
+	if spawn_time_max > spawn_time_min:
+		spawn_time_max -= 1
+		print("SPAWN TIME MAX: " + str(spawn_time_max))
 
 # RAAA CANDY TIME
 #	near end of wave 

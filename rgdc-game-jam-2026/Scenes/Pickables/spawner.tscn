@@ -15,3 +15,5 @@ candy_scene = ExtResource("2_aum6o")
 firecrackers_scenes = Array[PackedScene]([ExtResource("3_hpg5u"), ExtResource("4_uuykj"), ExtResource("5_gbi7f"), ExtResource("6_uogdr"), ExtResource("7_exnwe"), ExtResource("8_6r7dl")])
 
 [node name="Timer" type="Timer" parent="." unique_id=805854834]
+
+[node name="SpawnDecrease" type="Timer" parent="." unique_id=1423347962]

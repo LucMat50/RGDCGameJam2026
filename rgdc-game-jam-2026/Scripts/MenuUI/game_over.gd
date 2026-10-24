@@ -11,11 +11,15 @@ var tween: Tween
 #	updates best score
 #	displays candy and time for 1 game
 func _ready() -> void:
-	GameManager.updateScore()
+	$NewBest.hide()
 	var minutes := int(GameManager.current_time) / 60
 	var seconds := int(GameManager.current_time) % 60
 	var msec := int(fmod(GameManager.current_time, 1.0) * 100)
 	
+	if GameManager.candy_points > GameManager.best_candy_points or GameManager.current_time > GameManager.best_time:
+		$NewBest.show()
+	
+	GameManager.updateScore()
 	candy_label.text = "CANDY: %s" % GameManager.candy_points
 	time_label.text = "TIME: %02d:%02d:%02d" % [minutes, seconds, msec]
 

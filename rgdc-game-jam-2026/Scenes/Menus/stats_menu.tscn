@@ -43,9 +43,9 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 186.0
-offset_top = -405.0
-offset_right = 1258.0
-offset_bottom = 46.0
+offset_top = -342.5
+offset_right = 1810.0
+offset_bottom = 342.5
 grow_vertical = 2
 theme_override_constants/separation = 50
 alignment = 1
@@ -53,12 +53,26 @@ alignment = 1
 [node name="Candy" type="Label" parent="StatsContainer" unique_id=1387719996]
 layout_mode = 2
 theme = ExtResource("3_a4v23")
+theme_override_colors/font_color = Color(0, 0.5019608, 0.80784315, 1)
 text = "MOST CANDY COLLECTED: "
+
+[node name="CandyMissed" type="Label" parent="StatsContainer" unique_id=47105635]
+layout_mode = 2
+theme = ExtResource("3_a4v23")
+theme_override_colors/font_color = Color(0, 0.5019608, 0.80784315, 1)
+text = "MOST CANDY MISSED: "
+
+[node name="TotalCandy" type="Label" parent="StatsContainer" unique_id=731547981]
+layout_mode = 2
+theme = ExtResource("3_a4v23")
+theme_override_colors/font_color = Color(0, 0.5019608, 0.80784315, 1)
+text = "TOTAL CANDY COLLECTED:"
 
 [node name="Time" type="Label" parent="StatsContainer" unique_id=600102472]
 layout_mode = 2
 theme = ExtResource("3_a4v23")
-text = "BEST TIME: "
+theme_override_colors/font_color = Color(0, 0.5019608, 0.80784315, 1)
+text = "BEST TIME SURVIVED: "
 
 [node name="Back" parent="." unique_id=14575621 instance=ExtResource("2_d4bva")]
 layout_mode = 1

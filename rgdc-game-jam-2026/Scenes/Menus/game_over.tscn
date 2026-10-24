@@ -5,6 +5,8 @@
 [ext_resource type="Theme" uid="uid://0yse4qj80gyh" path="res://Assets/Themes/menu_label.tres" id="4_prjnw"]
 [ext_resource type="Texture2D" uid="uid://bm5iw7gon180e" path="res://Assets/Menus/torturedGoober.png" id="5_h1yjp"]
 [ext_resource type="AudioStream" uid="uid://d1sih0f0vc1k6" path="res://Sound/quiereLlorar.MP3" id="6_5b2x3"]
+[ext_resource type="Texture2D" uid="uid://bo6f783x12tpx" path="res://Assets/Menus/newBest.png" id="6_c1sox"]
+[ext_resource type="PackedScene" uid="uid://7lwoaiswack3" path="res://Scenes/custom_cursor.tscn" id="7_c1sox"]
 [ext_resource type="PackedScene" uid="uid://k7upeosyr7vh" path="res://Scenes/Menus/default_button.tscn" id="7_m4ckg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5b2x3"]
@@ -28,6 +30,43 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="Animation" id="Animation_uwrdi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ty4u7"]
+resource_name = "default"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.6195919]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gvb5m"]
+_data = {
+&"RESET": SubResource("Animation_uwrdi"),
+&"default": SubResource("Animation_ty4u7")
+}
 
 [node name="GameOver" type="Control" unique_id=1882706428]
 layout_mode = 3
@@ -82,12 +121,14 @@ alignment = 1
 [node name="Candy" type="Label" parent="VBoxContainer/StatsContainer" unique_id=204307135]
 layout_mode = 2
 theme = ExtResource("4_prjnw")
+theme_override_colors/font_color = Color(0, 0.5019608, 0.80784315, 1)
 text = "CANDY:"
 vertical_alignment = 1
 
 [node name="Time" type="Label" parent="VBoxContainer/StatsContainer" unique_id=1603528472]
 layout_mode = 2
 theme = ExtResource("4_prjnw")
+theme_override_colors/font_color = Color(0, 0.5019608, 0.80784315, 1)
 text = "TIME SURVIVED:"
 vertical_alignment = 1
 
@@ -115,10 +156,24 @@ sprite_frames = SubResource("SpriteFrames_c1sox")
 autoplay = "default"
 frame_progress = 0.87002456
 
+[node name="NewBest" type="Sprite2D" parent="." unique_id=404648903]
+visible = false
+position = Vector2(886, 846)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_c1sox")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="NewBest" unique_id=2086553315]
+libraries/ = SubResource("AnimationLibrary_gvb5m")
+autoplay = &"default"
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1257016247]
 stream = ExtResource("6_5b2x3")
 volume_db = 2.737
 autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=301086410]
+
+[node name="CustomCursor" parent="CanvasLayer" unique_id=1050464833 instance=ExtResource("7_c1sox")]
 
 [connection signal="button_pressed" from="VBoxContainer/ButtonContainer/Retry" to="." method="_on_retry_button_pressed"]
 [connection signal="button_pressed" from="VBoxContainer/ButtonContainer/Back" to="." method="_on_back_button_pressed"]

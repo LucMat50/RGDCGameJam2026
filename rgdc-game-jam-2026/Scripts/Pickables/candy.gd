@@ -4,9 +4,13 @@ extends RigidBody2D
 # INT VARIABLES
 var random_candy: int
 
+# VECTOR 2 VARIABLES 
+var last_position: Vector2
+
 # ONREADY VARIABLES
 @onready var candy_anim = $AnimatedSprite2D
 @onready var candy_collision = $CollisionShape2D
+@onready var last_position_notifier = $VisibleOnScreenNotifier2D
 
 # DICTIONARIES
 # Candy Animation
@@ -49,3 +53,10 @@ func _ready() -> void:
 	elif candy_collision.shape is CircleShape2D:
 		# get radius from dictionary key
 		candy_collision.shape.radius = collision_dict[random_candy][1]
+	
+	last_position_notifier.screen_exited.connect(exit_screen)
+
+# EXIT SCREEN
+#	increases candy missed by 1
+func exit_screen():
+	GameManager.candy_missed += 1

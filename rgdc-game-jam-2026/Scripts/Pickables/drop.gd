@@ -38,10 +38,9 @@ func drop():
 			body.queue_free()
 			
 		elif body.is_in_group("Firecracker"):
-			firecracker_points += 1
 			GameManager.candy_points -= candy_tax
-			print("Firecracker: " + str(firecracker_points))
 			print("Candy: " + str(GameManager.candy_points))
+			GameEvents.lost_life.emit(body.stun_time)
 			body.detonation()
 
 # ON BOOM

@@ -145,4 +145,6 @@ animation = &"bocadin"
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_wgpwp")
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="RigidBody2D" unique_id=1137958342]
+
 [connection signal="input_event" from="RigidBody2D" to="." method="_on_rigid_body_2d_input_event"]

@@ -1,9 +1,14 @@
 extends Node
 
 # DEFAULT VARIABLES
-#	Points
+#	Candy
 var candy_points: int = 0
-var best_points: int = 0
+var candy_missed: int = 0
+
+var best_candy_points: int = 0
+var best_candy_missed: int = 0
+
+var total_candy: int = 0
 
 #	Time
 var current_time: float = 0
@@ -26,6 +31,7 @@ const SAVEFILE = "user://savefile.save"
 #	sets default variables
 func _ready() -> void:
 	candy_points = 0
+	candy_missed = 0
 	lives = 5
 	ear_ringing.stream = load("res://Sound/UI/ear_ringing.mp3")
 	add_child(ear_ringing)
@@ -50,6 +56,7 @@ func on_game_over():
 #	reset default values on signal reset
 func on_reset():
 	candy_points = 0
+	candy_missed = 0
 	current_time = 0
 	lives = 5
 	hold = false
@@ -60,7 +67,10 @@ func on_reset():
 func saveScore():
 	var file = FileAccess.open(SAVEFILE, FileAccess.WRITE)
 	if file:
-		file.store_32(best_points)
+		file.store_32(best_candy_points)
+		file.store_32(best_candy_missed)
+		file.store_32(total_candy)
+		
 		file.store_float(best_time)
 		file.close()
 
@@ -70,22 +80,49 @@ func loadScore():
 	if FileAccess.file_exists(SAVEFILE):
 		var file = FileAccess.open(SAVEFILE, FileAccess.READ)
 		if file:
-			best_points = file.get_32()
+			best_candy_points = file.get_32()
+			best_candy_missed = file.get_32()
+			total_candy = file.get_32()
+			
 			best_time = file.get_float()
 			file.close()
 
 # UPDATE SCORE
 #	if player gets better score or time save their score
 func updateScore():
-	if (candy_points > best_points):
-		best_points = candy_points
+	# update total candy collected
+	if (candy_points > 0):
+		total_candy += candy_points
+		saveScore()
+	
+	# update most candy collected
+	if (candy_points > best_candy_points):
+		#only updating candy_points rest stay the same
+		best_candy_points = candy_points
+		
+		#same
+		best_candy_missed = best_candy_missed
 		best_time = best_time
 		saveScore()
 		print("NEW SCORE SAVED")
+	
+	# update most candy missed
+	if (candy_missed > best_candy_missed):
+		# change
+		best_candy_missed = candy_missed
+		# same
+		best_candy_points = best_candy_points
+		best_time = best_time
+		saveScore()
 		
+		print("NEW SCORE SAVED")
+	
+	# update best survival time
 	if (current_time > best_time):
-		best_points = best_points
 		best_time = current_time
+		
+		best_candy_points = best_candy_points
+		best_candy_missed = best_candy_missed
 		saveScore()
 		print("NEW SCORE SAVED")
 	
