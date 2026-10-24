@@ -71,14 +71,19 @@ func spawn_firecracker():
 # SET SPAWN TIME
 #	throughout wave
 func set_spawn_time():
-	spawn_time = randf_range(2,spawn_time_max)
+	spawn_time = randf_range(spawn_time_min,spawn_time_max)
+	print("SPAWN TIME: " + str(spawn_time))
 
 # UPDATE SPAWN TIME
 #	update max spawn time
 func update_spawn_time():
-	if spawn_time_max > spawn_time_min:
+	if spawn_time_max > 3:
 		spawn_time_max -= 1
 		print("SPAWN TIME MAX: " + str(spawn_time_max))
+	
+	if spawn_time_max < 7 and spawn_time_min > 1:
+		spawn_time_min -= 1
+	set_spawn_time()
 
 # RAAA CANDY TIME
 #	near end of wave 
