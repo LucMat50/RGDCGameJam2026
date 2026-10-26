@@ -15,6 +15,10 @@ run/main_scene="uid://cjnfxqeaemero"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+general/default_playback_type.web=0
+
 [autoload]
 
 GameManager="*uid://bi0tb0ifxi8r7"
@@ -31,6 +35,7 @@ window/stretch/mode="canvas_items"
 
 folder_colors={
 "res://Assets/": "blue",
+"res://Exports/": "pink",
 "res://Scenes/": "orange",
 "res://Scripts/": "red",
 "res://Sound/": "teal"
@@ -62,5 +67,4 @@ pause={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
